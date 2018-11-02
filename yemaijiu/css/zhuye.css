@@ -568,7 +568,7 @@ a{
 }
 .xingjiabi{
 	position: relative;
-	padding-bottom: 42px;
+	padding-bottom: 18px;
 	border-bottom: 1px solid #d2d2ce;
 }
 .xingjiabi-right{
@@ -594,6 +594,33 @@ a{
 	border: 0px;
 	margin-top: 10px;
 }
-#xjb-yjlj{
-	padding-bottom: 18px;
+.like{
+	margin-top: 20px;
+	border-bottom: 2px solid #e54247;
+}
+.like-left{
+	float: left;
+	height: 372px;
+	width: 299px;
+	border: 1px solid #e7e7e7;
+}
+.like-right{
+	float: right;
+	width: 896px;
+	height: 372px;
+}
+.like-show{
+	float: left;
+	height: 185px;
+	width: 297px;
+	border-bottom: 1px solid #e7e7e7;
+	border-right: 1px solid #e7e7e7;
+}
+.like span{
+	line-height: 30px;
+}
+.like a{
+	float: right;
+	margin-right: 10px;
+	line-height: 30px;
 }
