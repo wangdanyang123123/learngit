@@ -1,0 +1,132 @@
+header{
+	height: 98px;
+	border-bottom: 2px solid #bc0e31;
+}
+header .w_1200{
+	padding: 20px 0px;
+}
+header img:nth-of-type(1){
+	float: left;
+	vertical-align: middle;
+}
+header img:nth-of-type(2){
+	float: right;
+}
+.login-mid{
+	height: 486px;
+	border-bottom: 1px solid #cccccc;
+}
+.login-mid .w_1200{
+	height: 486px;
+}
+.fuli{
+	float: left;
+	margin: 32px 156px 54px 135px;
+}
+.login-mid .login{
+	float: left;
+	width: 403px;
+	height: 393px;
+	border: 1px solid #dddddd;
+	margin-top: 34px;
+}
+.login-top{
+	height: 78px;
+}
+.login i{
+	float: left;
+	height: 0px;
+	width: 18px;
+	border-top: 1px dashed #b6b6af;
+	margin: 35px 20px 0px 32px;
+}
+.login .login-top span{
+	float: left;
+	color: #4d3d35;
+	font-size: 20px;
+	margin-right: 20px;
+	margin-top: 23px;
+}
+.login em{
+	float: left;
+	height: 0px;
+	width: 163px;
+	border-top: 1px dashed #b6b6af;
+	margin-top: 35px;
+}
+#uname,#password{
+	width: 298px;
+	height: 30px;
+	border: 1px solid #968d88;
+	margin-left: 35px;
+	text-indent: 6px;
+	margin-bottom: 16px;
+}
+input::-webkit-input-placeholder{
+	color: #999999;
+	font-size: 11px;
+}
+input{
+	outline: none;
+	display: block;
+}
+#submit{
+	text-align: center;
+	width: 300px;
+	height: 40px;
+	margin-left: 35px;
+	margin-bottom: 16px;
+	background: #d70000;
+	color: white;
+	font-size: 17px;
+	letter-spacing: 16px;
+	cursor: pointer;
+	outline: none;
+	border: 0px;
+}
+form div{
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 7px;
+}
+#check{
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 35px;
+}
+.forget-password{
+	margin-left: 35px;
+	margin-right: 10px;
+}
+.login-bot{
+	border-top: 1px dashed #cccccc;
+	margin-top: 20px;
+}
+.login-bot p{
+	color: #999999;
+	margin: 11px 0px 20px 30px;
+}
+.login-bot a{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	float: left;
+	margin-right: 20px;
+}
+.login-bot .QQ{
+	background: url(../img/login_img/icons.png) no-repeat -8px -11px;
+	margin-left: 35px;
+}
+.login-bot .zhi{
+	background: url(../img/login_img/icons.png) no-repeat -59px -11px;
+}
+.login-bot .weixin{
+	background: url(../img/login_img/icons.png) no-repeat -111px -11px;
+}
+.login-bot .weibo{
+	background: url(../img/login_img/icons.png) no-repeat -163px -11px;
+}
+.login a{
+	color: #3472b2;
+}

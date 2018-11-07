@@ -1,0 +1,82 @@
+.footer-bot{
+	background: #f6f6f6;
+	height: 290px;
+}
+.footer-bot div{
+	margin: 15px auto;
+}
+.footer-bot i{
+	float: left;
+	display: block;
+	width: 20px;
+	height: 20px;
+}
+.footer-bot .w_1200{
+	padding-top: 10px;
+	margin: 0 auto;
+}
+.footer-bot3 span{
+	float: left;
+	padding: 0px 10px;
+	border-right: 1px solid #e1dde1;
+	border-left: 1px solid #e7f6f6;
+	color: #999999;
+}
+.footer-bot3 a{
+	float: left;
+	padding: 0px 10px;
+	border-right: 1px solid #e1dde1;
+	border-left: 1px solid #e7f6f6;
+	color: #999999;
+}
+.footer-bot3 span:nth-of-type(1){
+	margin-left: 230px;
+}
+.footer-bot3 span:nth-of-type(1) i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -230px;
+}
+.footer-bot3 span:nth-of-type(2) i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -250px;
+}
+.footer-bot3 a i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -270px;
+}
+.footer-bot3 span:nth-of-type(3) i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -290px;
+}
+.footer-bot3 span:nth-of-type(4) i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -312px;
+}
+
+.footer-bot4{
+	width: 480px;
+}
+.footer-bot4 span{
+	color: #999999;
+	padding: 0px 10px;
+	border-right: 1px solid #e1dde1;
+	border-left: 1px solid #e7f6f6;
+}
+.footer-bot4 span:nth-of-type(1){
+	border-left: 0px;
+}
+.footer-bot4 span:nth-of-type(2){
+	border-right: 0px;
+}
+.footer-bot5{
+	width: 320px;
+}
+.footer-bot5 img{
+	float: left;
+	width: 112px;
+	height: 40px;
+	margin-left: 10px;
+}
+.footer-bot6{
+	width: 120px;
+	height: 120px;
+}
+.footer-bot6 img{
+	width: 120px;
+	height: 120px;
+}

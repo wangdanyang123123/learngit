@@ -10,3 +10,23 @@ $.fn.extend({
 		});
 	}
 });
+
+
+$.fn.extend({
+	sfq:function(){
+		$(this).on("mouseenter","li",function(){
+			var that = this;
+			$(this).stop().animate({
+				width:450
+			}).siblings().stop().animate({
+				width:150
+			})
+		}).mouseleave(function(){
+			$(that).stop().animate({
+				width:450
+			}).end().siblings().stop().animate({
+				width:150
+			});
+		});
+	}
+});
