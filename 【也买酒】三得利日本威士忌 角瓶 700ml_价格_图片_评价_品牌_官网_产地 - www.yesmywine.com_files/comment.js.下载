@@ -1,0 +1,581 @@
+/**
+ *  业务相关的js
+ */
+//折叠展开
+function hq(a){return document.getElementById(a);}
+function show(ent){
+    if(hq('tip'+ent).style.display=='none'){
+    	showTaste(ent);
+    }else{
+    	hideTaste(ent);
+    }
+}
+function showTaste(ent){
+	   hq('tip'+ent).style.display='block';
+       hq('img'+ent).src="//www.yesmywine.com"+'/newcomment/images/cart/fu.gif';
+       hq('text'+ent).innerHTML='收起专业酒评';
+       $("#tasteFlagId").val("1");
+       $("#spanColorId").addClass("color");
+       $("#ChildMenu2").addClass("colorBox");
+}
+function hideTaste(ent){
+	   hq('tip'+ent).style.display='none';
+       hq('img'+ent).src="//www.yesmywine.com"+'/newcomment/images/cart/jia.gif';
+       hq('text'+ent).innerHTML='添加专业酒评';
+       $("#tasteFlagId").val("0");
+}
+var loadStyle='<div class="loading">正在加载中，请稍后...</div>';
+/**
+ * 页面跳转
+ */
+function pageJump(pageUrl,divId){
+	if(pageUrl&&divId){
+		$("#"+divId).html(loadStyle);
+		$("#"+divId).load(pageUrl);        
+	}
+}
+//TAB 切换
+function setTab(name,cursel,n,fn){
+     for(i=1;i<=n;i++){
+      var tab=document.getElementById(name+i);
+      var con=document.getElementById("con_"+name+"_"+i);
+      tab.className=i==cursel?"hover":"";
+      con.style.display=i==cursel?"block":"none";
+      if(i==cursel){
+    	   if(fn){
+    		   fn();
+    	   }
+      }
+   }
+}
+ 
+//发表评论
+function buyCommentFn(goodsId){
+  YM.dataproxy.ajax({
+         url: "//www.yesmywine.com"+"/comment/checkUserBuyGoods.jspa?goodsId="+goodsId,
+         type: "post",
+         dataType : "json",
+         success: function(json) {
+               if(json){
+                  if(json.flag==1){
+                	  commentShow();// 弹出填写 评论
+                  }
+                  else if(json.flag==-1){
+                      //用户未买过当前商品
+                	  productWgmShow();
+                  }
+                  else if(json.flag==0){
+                	  showLogin();
+                	  return ;
+                  }
+                  else if(json.flag==2){
+                      alert("您已提交过评价，不可以重复提交！");
+                  }
+                  else {
+                	  alert("出现异常，稍后再试！");
+                  }
+             }  
+         }
+    });
+} 
+//咨询 
+function buyConsulting(){
+    //检查用户是否登录
+    YM.dataproxy.ajax({
+         url: "//www.yesmywine.com"+"/comment/checkLogin.jspa",
+         type: "post",
+         dataType : "json",
+         success: function(json) {
+               if(json){
+                  if(json.flag==1){
+                     shenqingZxShow();
+                  }
+                  else{
+                      showLogin();
+                      return ;
+                  }
+                  
+             }  
+         }
+    });
+ }
+/**
+ * 咨询回调
+ */
+function consultingHandler(index){
+	var title=$("#ConsultingTab"+index);
+	$("#consultingUrlFlag").val(index);
+	if(title.attr("down")!="true"){
+		initconsultingList(title,index,goodsId);
+	}
+}
+/**
+ * 初始化咨询
+ */
+function initconsultingList(title,index,goodsId){
+	var url="//www.yesmywine.com/comment/memberAskList/"+index+"/"+goodsId+".html";
+    var element = $("#con_ConsultingTab_"+index);
+    element.html('<div class="loading">正在加载中，请稍后...</div>');
+    YM.dataproxy.ajax({
+		url:url,
+		type: 'get',dataType: 'html',
+        success: function(html){
+        	element.html(html);
+        	element.bindCommentListEvent();
+         }
+	});
+    
+    
+    
+}
+/**
+ * 评论回调
+ */
+function commentHandler(index){
+	var title=$("#commentTab"+index);
+	$("#commentUrlFlag").val(index);
+    if(title.attr("down")!="true"){
+        var url="//www.yesmywine.com"+"/comment/list/"+index+"/"+goodsId+".html";
+        $("#con_commentTab_"+index).load(url,function(){
+            title.attr("down","true");
+        });
+    }
+}
+/**
+ * 评论详情回调
+ */
+function commentDetailHandler(tabIndex,index,commId){
+	var commentDetail=$("#commentDetailId_"+tabIndex+"_"+index);
+	if(commentDetail.attr("down")!="true"){
+	 var url="//www.yesmywine.com"+"/comment/taste/detail/"+commId+".html";
+	 commentDetail.show();
+ 	 commentDetail.load(url,function(){
+		 $(this).attr("down","true");
+		 $("#"+tabIndex+""+index+"ContentId").focus();
+     });
+    }
+	var replyList=$("#replyListId_"+tabIndex+"_"+index);
+	if(replyList.attr("down")!="true"){
+		  replyList.show();
+		  initReplyList(replyList,tabIndex,index,commId);
+	 }
+ }
+/**
+ * 初始化评论
+ */
+function initReplyList(replyContainer,tabIndex,index,commId){
+	var url="//www.yesmywine.com"+"/comment/replylist/"+tabIndex+"/"+index+"/"+commId+".html";
+	replyContainer.load(url, function() {
+        $(this).attr("down", "true");
+        var content=$("#"+tabIndex+""+index+"ContentId");
+        content.focus();
+    });
+}
+/**
+ * 评论投票
+ */
+function commentVote(commentId,voteValue,index){
+	YM.dataproxy.ajax({
+        url: "//www.yesmywine.com"+"/vote/commentVote.jspa?voteNo="+commentId+"&voteValue="+voteValue,
+        type: 'post',
+        dataType: 'json',
+        success: function(json){
+	        	if(json){
+	                if(json.flag=='-2'){
+	                    alert("投票失败，请稍后再试！");
+	                    return false;
+	                }
+	                else if(json.flag=='-1'){
+	                    alert("您已经提交过，谢谢！");
+	                    return false;
+	                } 
+	                else if(json.flag=='0'){
+	                    showLogin();
+	                    return false;
+	                }
+	                else{
+	                    alert("投票成功！");
+	                    try{
+	                        if(voteValue==1){
+	                             $("#"+commentId+"CMId"+index).html(parseInt($("#"+commentId+"CMId"+index).text())+1);
+	                             $("#"+commentId+"CMId_"+index).html(parseInt($("#"+commentId+"CMId_"+index).text())+1);
+	                        }
+	                        else{
+	                            $("#"+commentId+"CNId"+index).html(parseInt($("#"+commentId+"CNId"+index).text())+1);
+	                            $("#"+commentId+"CNId_"+index).html(parseInt($("#"+commentId+"CNId_"+index).text())+1);
+	                        }
+	                    }catch(ex){}
+	                    return;
+	                }
+	            }
+        }
+    });
+}
+/**
+ * 咨询投票
+ */
+function memberAskVote(askId,voteValue,index){
+	YM.dataproxy.ajax({
+        url: "//www.yesmywine.com"+"/vote/memeberAskVote.jspa?voteNo="+askId+"&voteValue="+voteValue,
+        type: 'post',
+        dataType: 'json',
+        success:function(json){
+        	if(json){
+                if(json.flag=='-2'){
+                    alert("投票失败，请稍后再试！");
+                    return false;
+                }
+                else if(json.flag=='-1'){
+                    alert("您已经提交过，谢谢！");
+                    return false;
+                } 
+                else if(json.flag=='0'){
+                    showLogin();
+                    return false;
+                }
+                else{
+                    alert("投票成功！");
+                    try{
+	                    if(voteValue==1){
+	                    	 $("#"+askId+"MId"+index).html(parseInt($("#"+askId+"MId"+index).text())+1);
+	                    }
+	                    else{
+	                        $("#"+askId+"NId"+index).html(parseInt($("#"+askId+"NId"+index).text())+1);
+	                    }
+                    }catch(ex){alert(ex);}
+                    return;
+                }
+            }
+        }
+    });
+}	
+/**
+ * 回复
+ */
+function replyComment(tabIndex,Index,commentId){
+	var replyContent=$("#"+tabIndex+""+Index+"ContentId");
+   if($.trim(replyContent.val())!=""){
+       if($.trim(replyContent.val()).length>250){
+            alert("对不起，回复最多只能有250个字符！");
+            return ;
+       }
+	   if(tabIndex&&Index&&commentId){
+		   YM.dataproxy.ajax({
+		        url: "//www.yesmywine.com"+"/comment/replyComment.jspa",
+		        type: 'post',
+		        data:"commentId="+commentId+"&replyContent="+$.trim(replyContent.val()),
+		        dataType: 'json',
+		        success: function(json){
+		        	if(json){
+		        		if(json.flag=="0"){
+		        			 showLogin();
+		        			 return ;
+		        		}
+		        		else if(json.flag=="1"){
+		        			alert("回复成功！");
+		        			replyContent.val("");
+		        			initReplyList($("#replyListId_"+tabIndex+"_"+Index),tabIndex,Index,commentId);//刷新页面
+		        			try{
+		        				$("#"+commentId+""+tabIndex+"countId").html(parseInt($("#"+commentId+""+tabIndex+"countId").text())+1);
+		        			}catch(ex){
+		        			}
+		        		}
+		        		else{
+		        			alert("添加失败！");
+		        		}
+		        	}
+		        }
+		    });
+	   } 
+	   else{
+		   alert("回复失败，请稍后再试！");
+	   }
+   }else{
+	   alert("请输入回复内容！");
+	   return ;
+   }
+}
+/**
+ * 提交专业酒评
+ */
+function tasteCommentInfo(commentId){
+	if(commentId){
+		YM.dataproxy.ajax({
+            url: "//www.yesmywine.com"+"/comment/loadComment.jspa",
+            type: 'post',
+            data:"commentId="+commentId,
+            dataType: 'json',
+            success: function(json){
+                if(json){
+                	if(json.flag==0){
+                		showLogin();
+                		return ;
+                	}
+                	else if(json.flag==-1){
+                		alert("您的操作有误，请正确操作！");
+                	}
+                	else if(json.flag==1){
+                		jpdnShow();//无法提价专业酒评
+                	}
+                	else if(json.flag==2){
+                		commentShow(json);
+                	}
+                	else if(json.flag==3){
+                		alert("您已提交过专业酒评，不能重复提交！");
+                		return false;
+                	}
+                	else{
+                		alert("无法进行专业评测！");
+                	}
+                }
+            }
+        });
+	}
+	else{
+	    alert("操作有误！");
+	    return false;
+	}
+}
+function addMemberAsk(){
+	if(trimValue("askContentId")==""){
+		alert("请填写咨询内容！");
+		$("#askContentId").focus();
+		return ;
+	}
+	else{
+        if(trimValue("askContentId").length>500){
+            alert("对不起，咨询内容最多只能有500个字符！");
+            return ;
+        }
+        else{
+            $("#askContentId").val(trimValue("askContentId"));
+            YM.dataproxy.ajax({
+                url: "//www.yesmywine.com"+"/comment/addMemberAsk.jspa",
+                type: 'post',
+                data: $("#memberAskFormId").serialize(),
+                dataType: 'json',
+                success: function (json) {
+                    if(json){
+                        if(json.flag==-1){
+                            //shenqingZxClose();
+                            alert(json.msg || "添加咨询失败，请稍后再试！");
+                            return ;
+                        }
+                        else if(json.flag==0){
+                             showLogin();
+                            shenqingZxClose();
+                            return ;
+                        }
+                        else{
+                        	$('#validImg').attr('src',"//www.yesmywine.com/random/rand.jspa?d="+Math.random());
+                            alert("添加成功！");
+                            clearLoadFlag();
+                            shenqingZxClose();
+                            consultingHandler($("#consultingUrlFlag").val());//同步刷新评价页面信息
+                        }
+                    }
+                    else{
+                    	$('#validImg').attr('src',"//www.yesmywine.com/random/rand.jspa?d="+Math.random());
+                        shenqingZxClose();
+                    }
+                }
+            });
+        }
+	}
+}
+
+ 
+/**
+ * 检查酒评信息是否正确
+ */
+function validateCommentInfo(){
+	
+	    var startInputScore=trimValue("stars1_input");
+	    if(startInputScore==''||startInputScore=='0'){
+    		alert("请进行打分！");
+    		return false;
+    	}
+    	if(trimValue("tasteFlagId")=='1'||trimValue("memberCommentId")!=''){
+    		if(trimValue("tasteDateId")==''){
+    			alert("请填写品酒时间！"); 
+    			return false;
+    		}
+    		if(trimValue("tastePartnerId")=="其他"&&trimValue("otherPartnerId")==""){
+      	    	alert("请填写其他品酒伙伴！");
+      	    	return false;
+      	    }
+    		if(trimValue("tasteAddressId")==''){
+                alert("请填写品酒地点！"); 
+                return false;
+            }
+    	    if(trimValue("colorMov-input")==''){
+    	    	alert("请填写色泽！");
+    	    	return false;
+    	    }
+    	}
+    	if(trimValue("commentContentId")==''){
+    	    alert("请填写总评！");
+    	    return false;
+    	}
+    	else{
+    	   if(trimValue("commentContentId").length>500){
+    	       alert("对不起，总评内容最多只能有500个字符！");
+    	       return false;
+    	   }
+           $("#commentContentId").val(trimValue("commentContentId"));
+    	}
+    	return true;
+}
+function trimValue(id){
+	return $.trim($("#"+id).val());
+}
+function addComment(){
+	if(validateCommentInfo()){
+	    YM.dataproxy.ajax({
+	        url: "//www.yesmywine.com"+"/comment/addComment.jspa",
+	        type: 'post',
+	        data: $("#commentFormId").serialize(),
+	        dataType: 'json',
+	        success: function (json) {
+	            if(json){
+	            	if(json.flag==-1)
+	                 {
+	            		 commentClose();//关闭添加页面
+	            		 productWgmShow();
+	            	 }else if(json.flag==0){
+	            		 showLogin();
+	            		 return ;
+	                 }
+	                 else if(json.flag==1){
+	                    if(json.insert&&json.insert=='1'){
+                            if(json.rateInfo){
+                            	$("#commentTab2").html("很好("+json.rateInfo.rateThreeNum+")");
+                            	$("#commentTab3").html("较好("+json.rateInfo.rateTwoNum+")");
+                            	$("#commentTab4").html("一般("+json.rateInfo.rateOneNum+")");
+                            	$("#rateTopPercentId").html(json.rateInfo.rateTopPercent);
+                                $("#rateThreeDivId").css("width",json.rateInfo.rateThreePercent);
+                                $("#rateTwoDivId").css("width",json.rateInfo.rateTwoPercent);
+                                $("#rateOneDivId").css("width",json.rateInfo.rateOnePercent);
+                                $("#goodsRateThreeDivId").css("width",json.rateInfo.rateThreePercent);
+                                $("#goodsRateTwoDivId").css("width",json.rateInfo.rateTwoPercent);
+                                $("#goodsRateOneDivId").css("width",json.rateInfo.rateOnePercent);
+                                $("#goodsRateThreeDtId").html(json.rateInfo.rateThreePercent);
+                            	$("#goodsRateTwoDtId").html(json.rateInfo.rateTwoPercent);
+                            	$("#goodsRateOneDtId").html(json.rateInfo.rateOnePercent);
+                                $("#rateThreeDtId").html(json.rateInfo.rateThreePercent);
+                            	$("#rateTwoDtId").html(json.rateInfo.rateTwoPercent);
+                            	$("#rateOneDtId").html(json.rateInfo.rateOnePercent);
+                            	$("#commTotalRateNumId").html(json.rateInfo.totalRateNum);
+                            	$("#goodsTotalRateNumId").html(json.rateInfo.totalRateNum);
+                            }	                       
+	                    }
+	                    if(trimValue("tasteFlagId")=='0'){
+	                		 if(json.commentId){
+	                			 	//弹出填写专业酒评的提示
+	                			 shenqingZyjpShow(json.commentId);
+	                		 }
+	                	 }else{
+	                		 alert("添加成功!");
+	                 	 }
+	                 	commentClose();
+	                	clearCommentLoadFlag();//清空标识
+	                	commentHandler($("#commentUrlFlag").val());//同步刷新评论页数据
+	                 }
+	                 else if(json.flag==2){
+	                	 alert("您已提交过评价，不可以重复提交！");
+	                 }
+	                 else{
+	                	 alert("添加失败，请稍后再试！");
+	                 } 	   	            	 
+	            }      
+	        }
+	    });
+	}
+}
+
+
+
+
+
+/**
+ * 清空酒评信息
+ */
+function clearTastInfo(){
+        
+     if(!createFlag){
+           return;
+     }
+    
+	$("#tasteDateId").val("");
+	$("#tasteAddressId").val("");
+	$("#otherTastePartnerId").val("");
+	clearSelectValue("tastePartnerId");
+	clearSelectValue("colourDepthId");
+	clearSelectValue("clarityId");
+	clearSelectValue("aromaIntensityId");
+    clearSelectValue("developmentId");
+    clearSelectValue("drySweetId");
+    clearSelectValue("bodyId");
+    clearSelectValue("acidityId");
+    clearSelectValue("tanninsId");
+    clearSelectValue("flavourIntensityId");
+    clearSelectValue("finishId");
+    clearSelectValue("foodPairingId");
+    $("#memberCommentId").val("");
+    $("#commentContentId").val("");
+    $("#commentContentId").attr("readonly","");//内容可编辑
+    /***
+     * 隐藏部分内容
+     */
+    $("#startWritableId").show();// 显示 
+    $("#startReadableId").hide(); //隐藏
+    hideTaste("1");
+    //清理颜色拾取器
+    $("#colorMov-input").val("");
+    $("#colorMov").html("");
+    $("#spanColorId").removeClass("color");
+    $("#ChildMenu2").removeClass("expanded");//折叠起来 将 颜色拾取器
+    
+    
+    //清理星星
+    while($("#stars1 a").hasClass("currentRating")){
+     $("#stars1 a").removeClass("currentRating");
+    }
+    
+    $("#fiveStarId").addClass("currentRating");
+    $("#stars1_flag").val(4);
+    $("#stars1_input").val(5);
+    $("#stars1_tips").html("5分-完美");
+        
+}
+
+function clearSelectValue(id){
+	$("#"+id).get(0).selectedIndex=0;
+}
+/**
+ * 添加咨询以后 清空数据
+ */
+function clearLoadFlag(){
+    $("#ConsultingTab1").attr("down","false");
+    $("#ConsultingTab2").attr("down","false");
+    $("#ConsultingTab3").attr("down","false");
+    $("#ConsultingTab4").attr("down","false");
+    $("#ConsultingTab5").attr("down","false");
+    $("#ConsultingTab6").attr("down","false");
+    $("#ConsultingTab7").attr("down","false");
+}
+
+function clearCommentLoadFlag(){
+	 $("#commentTab1").attr("down","false");
+	 $("#commentTab2").attr("down","false");
+	 $("#commentTab3").attr("down","false");
+	 $("#commentTab4").attr("down","false");
+}
+
+
+/**
+ * 用户登录 展示
+ */
+function showLogin(){
+    showLoginDiv();
+}

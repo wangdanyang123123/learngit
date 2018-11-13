@@ -1,0 +1,239 @@
+.gray-region{
+	background: #e8e8e8;
+	height: 450px;
+	margin-top: 40px;
+}
+.promise{
+	height: 120px;
+	border-bottom: 1px solid #d3161b;
+}
+.w200-promise{
+	float: left;
+	color: #d3161b;
+}
+.w200-promise div{
+	font-size: 20px;
+	font-weight: bold;
+	text-indent: 48px;
+	height: 38px;
+	margin-top: 45px;
+	line-height: 38px;
+	margin-right: 65px;
+}
+.promise-1{
+	width: 200px;
+	font-size: 28px;
+	margin-left: 10px;
+	line-height: 120px;
+	margin-right: 20px;
+}
+.promise-2 div{
+	background: url(../img/zhuye_img/icon.png) no-repeat -109px 0px;
+}
+.promise-3 div{
+	background: url(../img/zhuye_img/icon.png) no-repeat -109px -38px;
+}
+.promise-4 div{
+	background: url(../img/zhuye_img/icon.png) no-repeat -109px -76px;
+}
+.promise-5 div{
+	background: url(../img/zhuye_img/icon.png) no-repeat -109px -152px;
+}
+.promise-6 div{
+	background: url(../img/zhuye_img/icon.png) no-repeat -109px -114px;
+}
+.footer-uls ul{
+	float: left;
+	width: 100px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+	line-height: 30px;
+	margin-right: 20px;
+	margin-top: 44px;
+}
+.footer-uls ul li{
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 22px;
+}
+.footer-uls ul:nth-of-type(7){
+	width: 170px;
+}
+.footer-uls ul:nth-of-type(8){
+	width: 170px;
+	margin-right: 300px;
+	margin-top: 0px;
+}
+.footer-right{
+	width: 225px;
+	height: 250px;
+	margin-top: -200px;
+}
+.footer-right div{
+	float: left;
+}
+.app-store{
+	width: 105px;
+	height: 30px;
+	background: url(../img/zhuye_img/icon3.png) no-repeat 0px 0px;
+	margin-right: 15px;
+}
+.android{
+	width: 105px;
+	height: 30px;
+	background: url(../img/zhuye_img/icon3.png) no-repeat 0px -29px;
+}
+.black-ewm{
+	width: 100px;
+	height: 100px;
+	background: url(../img/zhuye_img/icon3.png) no-repeat 0px -200px;
+	margin-top: 20px;
+}
+.baoyou-99{
+	width: 100px;
+	height: 100px;
+	background: url(../img/zhuye_img/icon3.png) no-repeat 0px -300px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.yemai-weibo{
+	height: 45px;
+	width: 120px;
+}
+.weibo-img{
+	width: 39px;
+	height: 39px;
+	background: url(../img/zhuye_img/icon3.png) no-repeat -3px -107px;
+	margin-top: 20px;
+	margin-right: 8px;
+}
+.yemai-weibo span{
+	float: left;
+	width: 60px;
+	height: 20px;
+	margin-top: 20px;
+	color: #666666;
+	font-size: 14px;
+}
+.yemai-weibo a:nth-of-type(2){
+	float: left;
+	width: 60px;
+	height: 20px;
+	line-height: 20px;
+	color: #666666;
+	background: white;
+	text-align: center;
+	border-radius: 5px;
+}
+.footer-rightlast{
+	height: 45px;
+	line-height: 45px;
+	color: #000000;
+	margin-top: 20px;
+}
+.footer-bot{
+	background: #f6f6f6;
+	height: 350px;
+}
+.footer-bot div{
+	margin: 15px auto;
+}
+.footer-bot i{
+	float: left;
+	display: block;
+	width: 20px;
+	height: 20px;
+}
+.footer-bot .w_1200{
+	padding-top: 10px;
+	margin: 0 auto;
+}
+.footer-bot1{
+	width: 410px;
+}
+.footer-bot1 a{
+	color: #867666;
+	padding: 0px 15px;
+	border-left: 1px solid #94bbde;
+	border-right: 1px solid #e2bb7c;
+	float: left;
+}
+.footer-bot1 a:nth-of-type(1){
+	border-left: 0px;
+}
+.footer-bot1 a:nth-last-of-type(1){
+	border-right: 0px;
+}
+.footer-bot2{
+	float: right;
+	width: 1200px;
+}
+.footer-bot2 span{
+	color: #CCCCCC;
+	margin-left: 123px;
+}
+.footer-bot2 a{
+	color: #CCCCCC;
+}
+.footer-bot3 span{
+	float: left;
+	padding: 0px 10px;
+	border-right: 1px solid #e1dde1;
+	border-left: 1px solid #e7f6f6;
+	color: #999999;
+}
+.footer-bot3 a{
+	float: left;
+	padding: 0px 10px;
+	border-right: 1px solid #e1dde1;
+	border-left: 1px solid #e7f6f6;
+	color: #999999;
+}
+.footer-bot3 span:nth-of-type(1){
+	margin-left: 230px;
+}
+.footer-bot3 span:nth-of-type(1) i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -230px;
+}
+.footer-bot3 span:nth-of-type(2) i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -250px;
+}
+.footer-bot3 a i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -270px;
+}
+.footer-bot3 span:nth-of-type(3) i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -290px;
+}
+.footer-bot3 span:nth-of-type(4) i{
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -180px -312px;
+}
+
+.footer-bot4{
+	width: 480px;
+}
+.footer-bot4 span{
+	color: #999999;
+	padding: 0px 10px;
+	border-right: 1px solid #e1dde1;
+	border-left: 1px solid #e7f6f6;
+}
+.footer-bot4 span:nth-of-type(1){
+	border-left: 0px;
+}
+.footer-bot4 span:nth-of-type(2){
+	border-right: 0px;
+}
+.footer-bot5{
+	width: 320px;
+}
+.footer-bot5 img{
+	float: left;
+	width: 150px;
+	height: 52px;
+	margin-left: 10px;
+}
+.footer-bot6{
+	width: 120px;
+	height: 156px;
+}

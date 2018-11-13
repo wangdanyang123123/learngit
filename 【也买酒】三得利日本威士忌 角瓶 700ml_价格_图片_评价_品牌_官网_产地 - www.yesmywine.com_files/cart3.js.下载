@@ -1,0 +1,794 @@
+function checkNum(str) { 
+	return str.match(/\D/) == null 
+}
+
+var Cart3 = {
+	// 购物车商品COOKIE前缀
+	CART_COOKIE_PREFIX : "cartGoods",
+	// 购物车礼品COOKIE前缀
+	CART_GIFT_COOKIE_PREFIX : "cartGift",
+    // 购物车VIP商品COOKIE前缀
+    CART_VIP_COOKIE_PREFIX : "cartVipGoods",
+    // 购物车积分兑换商品COOKIE前缀
+    CART_EXCHANGE_GOODS_COOKIE_PREFIX : "cartExchangeGoods",
+    // 购物车订单商品来源COOKIE前缀
+    CART_ORDER_GOODS_SOURCE_COOKIE_PREFIX : "cartOrderGoodsSource",
+    // 购物车年份商品COOKIE前缀
+    CART_YEAR_GOODS_ID_COOKIE_PREFIX : "cartYearGoodsId",
+	// 购物车商品COOKIE有效期
+	CART_COOKIE_OPTION : {
+		domain : '.yesmywine.com',
+		expires : 365,
+		path : '/'
+	},
+	cloneObj:function(obj){
+		return $.extend({}, obj);
+	},
+	// 购物车商品COOKIE有效期
+	CART_COOKIE_OPTION2 : {
+		domain : 'www.yesmywine.com',
+		expires : 365,
+		path : '/'
+	},
+	// 购物车商品COOKIE有效期
+	CART_COOKIE_OPTION3 : {
+		expires : 365,
+		path : '/'
+	},
+	// 显示购物车URL
+	SHOW_CART_URL : "/cart4/showCart.jspa",
+	// 结算URL
+	TO_BALANCE_URL : "/neworder/writeOrder.jspa",
+	TO_BALANCE_URL2 : "/neworder/writeOrder2.jspa",
+
+	// 添加商品到购物车
+	addGoodsToChart : function(goodsId, goodsAmountId, houseId, adSource, yearGoodsId,goodsYear, callback) {
+		
+		//tracking,no recommend with get event by mozilla
+		try {
+			if($.browser.mozilla) {
+				var $E = function(){var c=$E.caller; while(c.caller)c=c.caller; return c.arguments[0]};
+			}
+			var e = window.event || $E();
+			var currEle = $(e.target || e.srcElement);
+			if (!currEle.attr("data-dts")) {
+				currEle.attr("data-dts","{dts:'addCart',goodsId:'" + goodsId + "'}");
+			}
+		} catch (e){}
+		
+		// 默认数量为1
+		var numValue = "1";
+		if (goodsAmountId) {
+			if(isNaN(goodsAmountId)){
+				numValue = $.trim($("#" + goodsAmountId).val());
+			}else{
+				numValue = goodsAmountId;
+			}
+			if (numValue == "") {
+				YM.page.alert("请输入数量！");
+				return;
+			}
+			if (!checkNum(numValue)) {
+				YM.page.alert("数量必须是自然数！");
+				return;
+			}
+
+			numValue = parseInt(numValue, 10);
+			if (numValue <= 0) {
+				YM.page.alert("数量必须大于0！");
+				return;
+			}
+			YM.page.cart.addGoodsToCartV2({
+				goodsId:goodsId,
+				goodsNum:numValue,
+				houseId:houseId,
+				adSource:adSource,
+				callback:callback
+			});
+			Cart3.flyElm();
+		}
+	},
+	flyElm: function(){
+	      var img = $('#image_box').find('img');
+	      var flyElm = img.clone().css('opacity', 0.75);
+	      $('body').append(flyElm);
+	      flyElm.css({
+	        'z-index': 9000,
+	        'display': 'block',
+	        'position': 'absolute',
+	        'top': img.offset().top +'px',
+	        'left': img.offset().left +'px',
+	        'width': img.width() +'px',
+	        'height': img.height() +'px'
+	      });
+	      flyElm.animate({
+	        top: $('.ym-nBar-cart-num').offset().top,
+	        left: $('.ym-nBar-cart-num').offset().left,
+	        width: 20,
+	        height: 32
+	      }, 'slow', function() {
+	        flyElm.remove();
+	      });
+	    },
+	addCart : function (goodsId, amountId){
+		Cart3.addGoodsToChart(goodsId, amountId, null, null, null,null, function(){
+			window.location.reload();
+		});
+	},
+	
+	addGoodsToChartByHouseId:function(goodsId,goodsAmountId,houseId,orderGoodsSource){
+    	if(typeof houseId =="undefined" || '' == houseId){
+    		if(typeof $('#delivery-warn') !="undefined" ){
+	    		$('#delivery-warn').html('请选择抢购仓库').show();
+    		}else{
+    			YM.page.alert("请选择抢购仓库");
+    		}
+    		return;
+    	}
+    	
+    	var option = new Object();
+    	option.houseId = houseId;
+	  	
+    	Cart3.addGoodsToChart(goodsId,goodsAmountId, option,orderGoodsSource);
+	},
+	//删除购物车商品
+	removeGoodsFromCart : function(goodsKey,cartKey, goodsId){
+		YM.page.cart.removeGoodsFromCart(goodsKey,cartKey, function(){
+			window.location.reload();
+		}, goodsId);
+	},
+
+	// 修改商品数量
+    changeGoodsAmount : function(goodsKey, goodsId, cartType,flag) {
+		if ((goodsId || "") == ""){
+			return;
+		}
+		var txtEl = $('#amount_' + goodsId);
+		var textValue = $.trim(txtEl.val());
+		var oldValue=txtEl.attr("goodsAmountOldValu");//修改前的值
+		var errorComent = "#error_"+goodsId;
+		var amount = parseInt(textValue, 10);	
+		
+		if (textValue == "") {
+			$(errorComent).text("购买数量不能为空！");
+			txtEl.val(oldValue);//用原值替换新值
+			txtEl[0].focus();
+			txtEl[0].select();
+			return;
+		}
+		if (isNaN(textValue)) {
+			$(errorComent).text("数量必须是数字！");
+			txtEl.val(oldValue);//用原值替换新值
+			txtEl[0].focus();
+			txtEl[0].select();
+			return;
+		}
+		if(amount<1){
+			$(errorComent).text("数量必须大于0！");
+			txtEl.val(oldValue);//商品数小于1则用原值替换新值
+			return;
+		}
+		if (flag == "add") {
+			// 增加数量
+			amount = amount + 1;
+		} else if (flag == "sub") {
+			// 减少数量
+			amount = amount - 1;
+		} else if (flag == "chg") {
+			// 直接修改数量
+			if (amount < 1) {
+				$(errorComent).text("数量必须大于0！");
+				txtEl.val(oldValue);//用原值替换新值
+				txtEl[0].focus();
+				txtEl[0].select();
+				return;
+			}
+		}else{
+			return;
+		}
+		
+		//使得当前商品的修改数量的链接失效，防止页面加载时客户重复点击出现的异常情况
+		$('#sub_' + goodsId).removeAttr("href");
+		$('#add_' + goodsId).removeAttr("href");
+		YM.page.cart.changeSKUNum(goodsKey, amount, cartType);
+	},	
+
+	// 修改换购数量
+	changePlusAmount : function(presentKey,goodsId, maxAmount,activityPrice, cartIndex,index,cartType) {
+		var txtEl = $('#giftCountInput' +cartIndex+ index);
+		var textValue = $.trim(txtEl.val());
+		var oldValue=txtEl.attr("oldValue");//修改前的值
+		var errorComent = $("#error_"+cartIndex+index);
+		if (textValue == "") {
+			$(errorComent).text("换购数量不能为空！");
+			txtEl.val(oldValue);//用原值替换新值
+			txtEl[0].focus();
+			txtEl[0].select();
+			return;
+		}
+
+		if (!checkNum(textValue)) {
+			$(errorComent).text("换购数量必须是数字！");
+			txtEl.val(oldValue);//用原值替换新值
+			txtEl[0].focus();
+			txtEl[0].select();
+			return;
+		}
+		var amount = parseInt(textValue, 10);
+		
+		if(amount<1){
+			$(errorComent).text("换购数量必须大于0！");
+			txtEl.val(oldValue);//商品数小于1则用原值替换新值
+			txtEl[0].focus();
+			txtEl[0].select();
+			return;
+		}
+		
+		if(amount > maxAmount){
+			$(errorComent).text("最多可换购"+maxAmount+"瓶！");
+			txtEl.val(oldValue);//商品数小于1则用原值替换新值
+			txtEl[0].focus();
+			txtEl[0].select();
+			return;
+		}
+		$("#plusMoney"+cartIndex+index).text(amount*activityPrice);
+//		YM.page.cart.changePresentSKUNum(presentKey, amount, cartType);
+	},
+
+	// 添加活动赠品
+	addPresent : function(cartKey,cartIndex, presentIndex,cartType) {
+		//添加活动赠品
+		var txtEl = $('#giftCountInput' +cartIndex+ presentIndex);
+		var textValue = $.trim(txtEl.val());
+		var amount = parseInt(textValue, 10);
+		$('#giftCountInput' +cartIndex+ presentIndex).attr("disabled","disabled" );
+		$('#showOrHide' +cartIndex+ presentIndex).attr("class","" );
+		YM.page.cart.changePresentSKUNum(cartKey,amount,cartType);
+		//更新快速结算总金额
+		Cart3.showQuickCheckOut(cartType);
+		
+		//添加按钮和删除按钮相互变换
+		$('#addState'+cartIndex+presentIndex).hide();
+		$('#removeState'+cartIndex+presentIndex).show();
+		//更新购物车总计和优惠
+		Cart3.refreshCartPrice(cartType,cartIndex);
+	},
+	
+	//删除活动赠品
+	removePresent : function(presentKey,cartType,cartIndex, presentIndex){
+		$('#giftCountInput' +cartIndex+ presentIndex).attr("disabled","" );
+		//删除活动赠品
+		YM.page.cart.removePresentFromCart(presentKey,cartType);
+		//更新快速结算总金额
+		Cart3.showQuickCheckOut(cartType);
+		//添加按钮和删除按钮相互变换
+		$('#addState'+cartIndex+presentIndex).show();
+		$('#removeState'+cartIndex+presentIndex).hide();
+		//更新购物车总计和优惠
+		Cart3.refreshCartPrice(cartType,cartIndex);
+		$('#selectTrueOrFalse'+cartIndex+ presentIndex).val(0);
+	},
+
+	//新版购物车选择赠品
+	selectPresent2 : function(presentIndex){
+		var _index = this.selected.optionId;
+		
+		var engName = $("#engName_"+_index).val();
+		var goodsId = $("#goodsId_"+_index).val();
+		var goodsActivityPrice = $("#goodsActivityPrice_"+_index).val();
+		var goodsYMPrice = $("#goodsYMPrice_"+_index).val();
+		var goodsAmount = $("#goodsAmount_"+_index).val();
+		var promotionGiftCount = $("#promotionGiftCount_"+_index).val();
+		var presentKey = $("#presentKey_"+_index).val();
+		var selected = $("#selected_"+_index).val();
+		
+		$("#present_engId_"+presentIndex).html(engName);
+		$("#_goodsId"+presentIndex).val(goodsId);
+		$("#plusMoney"+presentIndex).html(goodsActivityPrice);
+		$("#marketMoney"+presentIndex).html(goodsYMPrice);
+		$("#giftCount"+presentIndex).html(goodsAmount);
+		$("#presentGiftCount"+presentIndex).html(promotionGiftCount);
+		$("#_presentKey"+presentIndex).val(presentKey);
+		$("#_selected"+presentIndex).val(selected);
+	},	
+
+	// 去结算
+	toBalance2 : function() {
+		var type = $("#cartType").val();
+		$('input:radio[name=orderSource][checked]').each(function() {
+			type = $(this).val();
+		});
+		type = ((type!=null) && (""!=type))?"?cartType="+type:"";
+		
+		//ctbclub标识判断是否是交行积分乐园跳转
+		if(YM.cookie.get('_yvc')=="1"){
+			YM.login.pop(Cart3.TO_BALANCE_URL2+type);
+		}else{
+			$.ajax({
+				cache : false,
+				url : "//www.yesmywine.com/cart2/toBalance.jspa"+type,
+				dataType : 'json',
+				cache:false,
+				success : function(res) {
+					if (res.flag > 0) {
+						// VIP商品数量少于预约数
+						if (res.flag == 4 && !confirm("您是否放弃预约上剩余商品的48小时预约权?")) {
+							return;
+						}
+	                    // 转移到结算页面
+						window.location.href = Cart3.TO_BALANCE_URL2+type;
+					} else if (res.flag == -1) {  // WLT来的，未登录
+						window.location.href = '/user/login.jsp?to=' + Cart3.SHOW_CART_URL;						
+					} else if (res.flag == -2) { // 未登录
+						var fun = "Cart3.toBalanceLoginCallBack()";
+						showLoginDiv(fun);
+					} else if (res.flag <= -3) { // 显示其他错误
+						YM.page.alert(res.msg);
+					}
+				}
+			});
+		}
+	},
+		
+	// 去结算登录后回调函数
+	toBalanceLoginCallBack : function() {
+		window.location.reload();
+	},
+    
+	// 获取商品数量
+	getCartGoodsNum : function() {
+		var goodsNum = 0;		
+		$.ajax({
+			cache : false,
+			url : "/top/topCartGoodsNumAjax.jspa",
+			dataType : 'json',
+			async : false,
+			success : function(json) {
+				if(json!=null && json.flag==1){
+					goodsNum = json.data;
+				}
+			}
+		});		
+		return goodsNum;
+	},
+	
+	//清空购物车
+	clearCartGoods : function(cartType) {
+		// 空方法,使用时请调用  /cart/clear.jspa?cartType=cartType
+	},	
+	
+	// 更新头文件中购物车数量
+	loadGoodsNum:function(){
+		 var goodsNum = Cart3.getCartGoodsNum();
+	     $("#top_cart_goods_num").html(goodsNum);
+	},
+	
+	//积分兑换商品互斥判断
+	checkExchangeGoodsExclusive : function (exchangeId, exchangeWayId) {
+		var msg='';
+		$.ajax({
+			url :  "/cart2/checkExchangeGoodsExclusive.jspa?exchangeId=" + exchangeId + "&exchangeWayId=" + exchangeWayId,
+			cache : false,
+			async : false,
+			dataType : 'json',
+			success : function(res) {
+				if (res.flag == 0) {
+					msg =  res.msg;
+				}
+			}
+		});
+		return msg;
+	},
+	
+	// 新版购物车使用折扣券
+	usingCoupon : function (cartType,index) {
+		var couponCode = $.trim($('#zhekou'+index).val());
+		var privilege = $.trim($('#privilege'+index).val());
+        if (couponCode == ""||couponCode == "请输入优惠券代码") {
+			YM.page.alert("请输入优惠券代码");
+			return;
+		}
+        //使用优惠卷（成功回调函数changeCouponPrice）
+		YM.page.cart.usingCoupon(cartType,couponCode, Cart3.changeCouponPrice(cartType,privilege,index));
+		Cart3.showQuickCheckOut(cartType);
+	},
+	
+	// 使用折扣券后修改购物车显示的价格
+	changeCouponPrice : function (cartType,privilege,index){
+		return function(){
+				//YM.page.alert("兑换成功！");
+			
+				//$('#zhekou'+index).attr("disabled","disabled");
+				//$('#vochersButton'+index).attr("href","javascript:Cart3.removeCoupon('"+cartType+"',"+index+");");
+				//$('#vochersButton'+index).html("删除");
+				//$('#couponPrivilege_'+index).html(privilege);
+				//优惠券使用成功提示回调信息函数
+				Cart3.usingCouponSuccessCallBack(privilege);
+				//更新购物车总计和优惠
+				//Cart3.refreshCartPrice(cartType,index);
+				
+				//window.location.reload();
+			
+		};
+	},
+	//优惠券提示信息回调函数
+	usingCouponHtmlCallBack : function(message){
+		$('.quan-code').hide();
+		$('.quan-info').show().html("<span>"+ message+"</span><a onclick='quanInfoAgain();' class='blue' style='font-weight:normal;'>重新使用优惠劵</a>");
+	},
+	//优惠券成功后回调
+	usingCouponSuccessCallBack : function(message){
+		$('.quan-code').hide();
+		$('.quan-info').show().html(message);
+		//三秒后刷新页面
+		setTimeout(function() {
+			window.location.reload();
+		},2000); 
+
+		//$('.zhek_a .text').html("<span class='success'>成功抵扣 节省<ins>"+ "25"+"</ins>元</span>");
+	},
+	//删除折扣券
+	removeCoupon : function(cartType,index, couponCode){
+		//var cartKey=$.trim($('#cartKey'+index).val());
+		YM.page.cart.removeCoupon(cartType,couponCode,Cart3.removeCouponCallBack());
+		//Cart3.showQuickCheckOut(cartType);
+		
+		//$('#zhekou'+index).attr("disabled","");
+		//$('#savePrice'+index).html("0.00");
+		//$('#vochersButton'+index).attr("href","javascript:Cart3.usingCoupon('"+cartType+"',"+index+");");
+		//$('#vochersButton'+index).html("使用");
+		//更新购物车总计和优惠
+		//Cart3.refreshCartPrice(cartType,index);
+		//更新购物车总计和优惠
+		//Cart3.showQuickCheckOut(cartType);
+	},
+	// 删除优惠券成功回调（刷新页面）
+	removeCouponCallBack : function(){
+		return function(){
+		window.location.reload();
+		};
+	},
+	// 刷新价格
+	refreshCartPrice : function(cartType,index){
+		if(cartType==null) return;
+		$.ajax({
+			url : '/cart/refreshCartPrice.jspa?cartType='+cartType,
+			dataType : 'json',
+			success : function(data) {
+			   $("#cartAmout"+index).html(data.cartAmountAll);
+			   $("#sumPriceAll"+index).html(data.cartSumPriceAll);
+			   $("#sumPrivilege"+index).html(data.cartSumPrivilegeAll);			
+			}
+		});
+	},
+	
+	//显示我的收藏
+	showMyFavorites : function() {
+		if(isLogin()){
+			var myFav ='';
+			$.ajax({
+				url : '/cart2/favorite.jspa',
+				dataType : 'json',
+				success : function(res) {
+//					myFav +='<div class=\"  jcarousel-skin-tango\"><div class=\"jcarousel-container jcarousel-container-horizontal\" style=\"padding: 20px 0px; display: block;\">';
+//					myFav +='<div class=\"jcarousel-clip jcarousel-clip-horizontal\" style=\"overflow: hidden;\">';
+//					myFav +='<ul id=\"mycarousel\" class=\"jcarousel-list jcarousel-list-horizontal\" style=\"float: left; overflow: hidden; position: relative; top: 0px; margin: 0px; padding: 0px; left: 0px; width: 2247px;\">';
+					if(res!=null){
+						var len =res.length;
+						for(var i = 0;i < len;i++){
+							var goodsInfo = res[i];
+							myFav +='<li id=\"tabK';
+							myFav += i+1;
+							myFav += '\"';
+							myFav +=' class=\"jcarousel-item jcarousel-item-horizontal jcarousel-item-';
+							myFav += i+1;
+							myFav +=' jcarousel-item-';
+							myFav += i+1;
+							myFav += '-horizontal\" style=\"float: left; list-style: none outside none;\"';
+							myFav +='jcarouselindex="';
+							myFav += i+1;
+							myFav +='\" onClick=\"setTab1(\'tabK\',';
+							myFav += i+1;
+							myFav +=',';
+							myFav += len;
+							myFav +=')\">';
+							myFav +='<h2><a href=\"//www.yesmywine.com/goods/';
+							myFav +=goodsInfo.goodsId;
+							myFav +='.html\" target=\"_blank\">';
+							myFav +='<img src=\"';
+							myFav +=goodsInfo.goodsPhoto;
+							myFav +='\" />';
+							myFav +='</a></h2><dl><dt><a href=\"//www.yesmywine.com/goods/';
+							myFav +=goodsInfo.goodsId;
+							myFav +='.html\" target=\"_blank\">';
+							myFav +=goodsInfo.name;
+							myFav +='</a><br />';
+							myFav += goodsInfo.engName;
+							myFav +='</dt><dd>也买价: <b>';
+							myFav += goodsInfo.memberPrice;
+							/*20150901-关键字屏蔽 myFav +='</b> 元<br />市场价:<ins>';
+							myFav +=goodsInfo.marketPrice;*/
+							myFav +='</ins>元<br />数&nbsp;&nbsp;量: <input type=\"text\"';
+							myFav +='id=\"favorite_num_';
+							myFav +=goodsInfo.goodsId;
+							myFav +='\" onblur=\"if (value==\'\') {value=\'1\'}\" value=\"1\" onfocus=\"if(value==\'1\') {value=\'\'}\" />';
+							myFav +='</dd><dd><a href=\"javascript:Cart3.addCart(';
+							myFav +=goodsInfo.goodsId;
+							myFav +=',\'favorite_num_';
+							myFav +=goodsInfo.goodsId;
+							myFav +='\');\">加入购物车</a></dd></dl></li>';
+						}
+//						myFav +='</ul></div>';
+//						myFav +='<div class=\"jcarousel-prev jcarousel-prev-horizontal jcarousel-prev-disabled jcarousel-prev-disabled-horizontal\" style=\"display: block;\" disabled=\"true\"></div>';
+//						myFav +='<div class=\"jcarousel-next jcarousel-next-horizontal\" style=\"display: block;\" disabled=\"false\"></div>'
+//						myFav +='</div></div>';
+						$("#mycarousel").html(myFav);
+						$("#mycarousel").attr('style','float: left; overflow: hidden; position: relative; top: 0px; margin: 0px; padding: 0px; left: 0px; width: ' + (len*250) + 'px;');
+					}
+				}
+			});
+		}
+	},
+
+	//显示我的浏览
+	showMyBrowse : function() {
+		var myBro ='';
+		var myBrowseNum = 0;
+		$.ajax({
+			url :'/cart2/browse.jspa',
+			dataType : 'json',
+			cache:false,
+			success : function(res) {
+				if(res!=null&&res[0]!=null){
+					for(var i = 0;i < res.length;i++){
+						myBrowseNum = res.length;//add by liuxb
+						var goodsInfo = res[i];
+						var name = goodsInfo.name;
+						var engName = goodsInfo.engName;
+						if(engName.length>32){
+							engName = engName.substr(0,31)+"..";
+						}
+						if(name.length>13){
+							name = name.substr(0,12)+"..";
+						}
+						myBro +='<li>';
+						myBro +='<h2><a href=\"//www.yesmywine.com/goods/';
+						myBro +=goodsInfo.goodsId;
+						myBro +='.html\" target=\"_blank\">';
+						myBro +='<img src=\"';
+						myBro +=goodsInfo.goodsPhoto;
+						myBro +='\" />';
+						myBro +='</a></h2><dl><dt><a href=\"//www.yesmywine.com/goods/';
+						myBro +=goodsInfo.goodsId;
+						myBro +='.html\" target=\"_blank\">';
+						myBro +=name;
+						myBro +='</a><br />';
+						myBro += engName;
+						myBro +='</dt><dd>';
+						myBro += goodsInfo.priceView.realPriceLabel;
+						myBro +=': <b>';
+						myBro += goodsInfo.priceView.realPrice;
+						myBro +='</b> 元<br />';
+						if (goodsInfo.priceView.showRefer) {
+							myBro += goodsInfo.priceView.referPriceLabel;
+							myBro +=': <ins>';
+							myBro +=goodsInfo.priceView.referPrice;
+							myBro +='</ins> 元';
+						}
+						myBro +='<br />数&nbsp;&nbsp;量: <input type=\"text\"';
+						myBro +='id=\"num_';
+						myBro +=goodsInfo.goodsId;
+						myBro +='\" onblur=\"if (value==\'\') {value=\'1\'}\" value=\"1\" onfocus=\"if(value==\'1\') {value=\'\'}\" maxlength=\"5\"/>';
+						myBro +='</dd><dd><a href=\"javascript:buyBox(';
+						myBro +=goodsInfo.goodsId;
+						myBro +=',\'num_';
+						myBro +=goodsInfo.goodsId;
+						myBro +='\');\">加入购物车</a></dd></dl></li>';
+					}
+				}else{
+					myBro +='<ul class="cartAddNone">您还没有浏览过商品！	</ul>';
+				}
+				
+				$("#numBId").text(myBrowseNum);//add by liuxb
+				$("#tip3").html(myBro);
+			}
+		});
+	},
+	
+	//选中购物车显示对应的商品总计
+	chooseCart : function(cartIndex){
+		//	if($("#orderSource_"+cartIndex).attr("checked")){
+		//		$("#gross_"+cartIndex).show();
+		//	}else{
+		//		$("#gross_"+cartIndex).hide();
+		//	}
+			
+		$('.chooseResult').each(function(){
+			var id=$(this).attr("id");
+			if("gross_"+cartIndex == id){
+				$(this).show();
+			}else{
+				$(this).hide();
+			}
+		});
+		
+		// 切换购物车
+		Cart3.switchCart($("#orderSource_"+cartIndex).val());
+	},
+	
+	//选中购物车显示对应的活动
+	presentChooseCart : function(cartIndex){
+		$('.choosePresentResult').each(function(){
+			var id=$(this).attr("id");
+			if("presentGross_"+cartIndex == id){
+				$(this).show();
+			}else{
+				$(this).hide();
+			}
+		});
+		
+	},
+	
+	//活动商品分页
+	goPage : function(pno,psize,cartIndex,index){ 
+		var itable = $("#ol1"+cartIndex+index); 
+		var num = itable.find("dd").length;//dd的行数 
+		var totalPage = 0;//总页数 
+		var pageSize = psize;//每页显示行数 
+		if(num/pageSize > parseInt(num/pageSize)){   
+			totalPage=parseInt((num-1)/pageSize)+1;   
+	   	}else{   
+		   totalPage=parseInt((num-1)/pageSize);   
+	   	}   
+	
+		var currentPage = pno;//当前页数 
+		var startRow = (currentPage - 1) * pageSize;//开端显示的行   
+	   	var endRow = currentPage * pageSize;//停止显示的行   
+	   	endRow = (endRow > num)? num : endRow; 
+	
+		for(var i=0;i<num;i++){ 
+			var irow = itable.find("dd")[i]; 
+			if(i>=startRow && i<endRow){ 
+				irow.style.display = "block"; 
+			}else{ 
+				irow.style.display = "none"; 
+			} 
+		} 
+	
+		var tempStr = "共"+num+"条记录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; 
+		for(var j=0;j<totalPage;j++){
+			tempStr +='<a href="javascript:Cart3.goPage(';
+			tempStr +=j+1;
+			tempStr +=',';
+			tempStr +=psize;
+			tempStr +=',';
+			tempStr +=cartIndex;
+			tempStr +=',';
+			tempStr +=index;
+			tempStr +=')">';
+			tempStr +=j+1;
+			tempStr +='</a>&nbsp;';
+		}
+		$("#barcon"+cartIndex+index).html(tempStr);
+	},
+	
+	//显示我的收藏 :分页
+	showMyPageFavorites : function(pageNum,total) {
+		if(isLogin()){
+			var myFav ='';
+			var pageDIV='';
+			var url ='/cart2/favorite.jspa?curPageNum='+pageNum+'&recordCnt='+total;
+			if(total==null||pageNum==null){
+				url ='/cart2/favorite.jspa';
+			}
+			$.ajax({
+				url : url,
+				dataType : 'json',
+				cache : false,
+				success : function(page) {
+					if(page!=null&&page.result.length>0){
+						var res = page.result;
+						var len =res.length;
+						for(var i = 0;i < len;i++){
+							var goodsInfo = res[i];
+							var name = goodsInfo.name;
+							if(name.length>13){
+								name = name.substr(0,12)+"..";
+							}
+							var engName = goodsInfo.engName;
+							if(engName.length>32){
+								engName = engName.substr(0,31)+"..";
+							}
+							myFav +='<li>';
+							myFav +='<h2><a href=\"//www.yesmywine.com/goods/';
+							myFav +=goodsInfo.goodsId;
+							myFav +='.html\" target=\"_blank\">';
+							myFav +='<img src=\"';
+							myFav +=goodsInfo.goodsPhoto;
+							myFav +='\" />';
+							myFav +='</a></h2><dl><dt><a href=\"//www.yesmywine.com/goods/';
+							myFav +=goodsInfo.goodsId;
+							myFav +='.html\" target=\"_blank\">';
+							myFav += name;
+							myFav +='</a><br />';
+							myFav += engName;
+							myFav +='</dt><dd>';
+							myFav += goodsInfo.priceView.realPriceLabel;
+							myFav +=': <b>';
+							myFav += goodsInfo.priceView.realPrice;
+							myFav +='</b> 元<br />';
+							if (goodsInfo.priceView.showRefer) {
+								myFav += goodsInfo.priceView.referPriceLabel;
+								myFav +=': <ins>';
+								myFav +=goodsInfo.priceView.referPrice;
+								myFav +='</ins> 元';
+							}
+							myFav +='<br />数&nbsp;&nbsp;量: <input type=\"text\"';
+							myFav +='id=\"favorite_num_';
+							myFav +=goodsInfo.goodsId;
+							myFav +='\" onblur=\"if (value==\'\') {value=\'1\'}\" value=\"1\" onfocus=\"if(value==\'1\') {value=\'\'}\" maxlength=\"5\"/>';
+							myFav +='</dd><dd><a href=\"javascript:Cart3.addCart(';
+							myFav +=goodsInfo.goodsId;
+							myFav +=',\'favorite_num_';
+							myFav +=goodsInfo.goodsId;
+							myFav +='\');\">加入购物车</a></dd></dl></li>';
+						}
+						$("#myUl").html(myFav);
+						
+						if(page.curPageNum==1){
+							pageDIV +='<a class=\"leftNone\"></a>';
+						}else if(page.befPageNum>0){
+							pageDIV +='<a class=\"left\" onclick=\"Cart3.showMyPageFavorites('+page.befPageNum+','+page.recordCnt+')\" ></a>';
+						}
+						if(page.curPageNum == page.pageCnt){
+							pageDIV +='<a class=\"rightNone\"></a>';
+						}else if(page.aftPageNum!=page.curPageNum){
+							pageDIV +='<a class=\"right\" onclick=\"Cart3.showMyPageFavorites('+page.aftPageNum+','+page.recordCnt+')\" ></a>';
+						}
+						$("#pageDiv").html(pageDIV);
+					}
+				}
+			});
+		}
+	},
+
+	// 取购物车类型
+	getCartType : function(){
+		var type=null;
+		$('input:radio[name=orderSource][checked]').each(function() {
+			type = $(this).val();
+		});
+		return type;
+	},
+	
+	// 切换购物车
+	switchCart : function(cartType){
+		$.ajax({
+			cache : false,
+			url : "/cart/switchCart.jspa?cartType="+cartType,
+			async : false,
+			success : function(res) {}
+		});
+	},
+
+	// 快速购物
+	showQuickCheckOut : function(para){
+		var type=null;
+		$('input:radio[name=orderSource][checked]').each(function() {
+			type = $(this).val();
+		});
+		if(type==null) return;
+		
+		Cart3.switchCart(type);		
+		$.ajax({
+			cache : false,
+			url : "/neworder/showQuickCheckOutAjax.jspa?cartType="+type,
+			async : false,
+			success : function(html) {
+				if ((html!=null)&&(html.indexOf("quick_check_out_btn")!=-1)){
+					$("#quick_check_out_div").html(html);
+				}
+			}
+		});
+	}		
+};

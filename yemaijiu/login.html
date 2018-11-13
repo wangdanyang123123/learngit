@@ -10,11 +10,11 @@
 	<body>
 		<header class="fullscreen">
 			<div class="w_1200">
-				<img src="img/login_img/logo.png"/>
+				<a href="#"><img src="img/login_img/logo.png"/></a>
 				<img src="img/login_img/head_right.jpg"/>
 			</div>
 		</header>
-		<div class="fullscreen login-mid">
+		<div class="fullscreen login-mid clearfix">
 			<div class="w_1200">
 				<div class="fuli"><a href="#"><img src="img/login_img/20180822131004313.jpg"/></a></div>
 				<div class="login">
@@ -22,8 +22,10 @@
 						<i></i><span>登录也买酒</span><em></em>
 					</div>
 					<form action="" method="get">
-						<input type="text" id="uname" placeholder="请输入E-mail或手机号" onfocus="javascript:if(this.placeholder=='请输入E-mail或手机号')this.placeholder='';"/>
-						<input type="password" id="password" placeholder="请输入密码" onfocus="javascript:if(this.placeholder=='请输入密码')this.placeholder='';"/>
+						<input type="text" id="uname" placeholder="请输入E-mail或手机号" />
+						<b class="error-uname"><em></em>请输入E-mail地址或手机号</b>
+						<input type="password" id="password" placeholder="请输入密码" />
+						<b class="error-password"><em></em>请输入密码</b>
 						<div><input id="check" type="checkbox" id="automatic-logon" />自动登录</div>
 						<input id="submit" type="submit" value="登录"/>
 					</form>
@@ -58,5 +60,11 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		
+		
+		
+		<script src="js/require.min.js" data-main="js/login.js"></script>
 	</body>
 </html>

@@ -1,0 +1,20 @@
+/*弹框样式*/
+#util-dialog .pdb-bgm{padding:31px 7px;margin:0;width:100%;background:#ddd;}
+#util-dialog .pdb-main{border:1px solid #cacad9;padding:0 0 40px;top:10px;left:10px;display:block;}
+#util-dialog .pdb-main .pdb-title{height:50px;background:#eee;border-bottom:1px solid #cacad9;}
+#util-dialog .pdb-main .pdb-title h4{color:#525261;line-height:50px;}
+#util-dialog .pdb-main .pdb-title h4.tab{padding:0;height:50px;line-height:50px;}
+#util-dialog .pdb-main .pdb-title h4.tab span{height: 50px;line-height: 50px;padding: 0 20px;}
+#util-dialog .pdb-main .pdb-title span.close{margin:10px 10px 0 0;background:url(images/icon.png) 0 -220px no-repeat;width:30px;height:30px;}
+#util-dialog .pdb-main .pdb-content{padding:10px;}
+#util-dialog .pdb-main a.btn{height:28px;line-height:28px;}
+#util-dialog .pdb-main a.btn-action{border:1px solid #d23434;}
+#util-dialog .pdb-main a.btn-cancel{border:1px solid #ccc;}
+#util-dialog .pdb-main a.btn em{padding:8px 20px;}
+#util-dialog .pdb-main a.btn-action em{background:url(images/icon.png) 0 -130px repeat-x;color:#fff;border:none;}
+#util-dialog .pdb-main a.btn-cancel em {background:url(images/icon.png) 0 -100px repeat-x;color: #333;border:none;}
+.msg-tips{padding:20px 20px 20px 50px;background:url(images/attend.png) 0 10px no-repeat;display:block;line-height:20px;}
+#util-dialog .pdb-main .msg-alert{padding:14px 0 14px 50px;background:url(images/attend.png) 0 10px no-repeat;line-height:20px;display:block;}
+.cont-list{margin-left:70px;}
+.cont-list li{height:25px;display:block;border-bottom:1px dashed #cacad9;line-height:25px;}
+#util-dialog .ajax-content .pl70{padding-left:70px;}

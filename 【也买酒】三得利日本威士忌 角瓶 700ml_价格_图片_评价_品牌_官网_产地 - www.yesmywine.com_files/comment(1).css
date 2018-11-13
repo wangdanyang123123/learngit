@@ -1,0 +1,174 @@
+@charset "utf-8";
+ /*------------------------------------------
+  *
+  * yesmywine css 框架
+  * 通用引用文件，评论模块
+  * Developed By: 陈云（yun chen）
+  * 版本号：2011-10-09 V1.2
+  ----------------------------------------------*/
+
+.commentTop dl dd ,.commentTop dl dd div{background:url(//img12.yesmywine.com/newWeb/images/product/jdt.png) no-repeat;}
+.commentTop ul li a ,.commentDetailR ul li a.hf ,.commentDetailR ul li.plun a.hf {background:url(//img12.yesmywine.com/newWeb/images/product/proBnt.png) no-repeat;}
+.commentDetailR ul h6 span,.commentDetailR ul h6 span i,.CommentBoxN ul li h6,.CommentBoxN ul li h6 i,.CommentBoxN ul li dl ,.CommentBoxN ul li dd a:hover ,.CommentBoxN ul li dl dd a.currentRating{background:url(//img12.yesmywine.com/newWeb/images/product/jdt.gif) no-repeat;}
+.noPlun ,.CommentBoxN ul li a.tj ,.ConsultingBoxN dl dd a.tj{background:url(//img12.yesmywine.com/newWeb/images/button/global_btnIcon.png) no-repeat;}
+.ConsultingDetail ul li span ,.ConsultingDetail ul li p i{background:url(//img12.yesmywine.com/newWeb/images/product/iconPro.png) no-repeat;}
+
+.comment-frame { margin:0 auto; }
+.comment-frame .content { width:100% !important; }
+
+.comment ,.Consulting ,.wineDiscuss {width:100%; float:left; margin-top:15px; display:inline; position:relative;}
+.comment h2 ,.Consulting h2 ,.wineDiscuss h2{width:100%; height:32px; float:left; background:url(//img12.yesmywine.com/newWeb/images/product/proDetailsBg.gif) repeat-x bottom; font:normal normal 14px/30px \5b8b\4f53; color:#ccc;}
+.comment h2 a ,.Consulting h2 a {width:110px; height:32px; padding:0px 10px; float:left; color:#666; text-align:center; background:url(//img12.yesmywine.com/newWeb/images/product/proTabXR.gif) no-repeat right; cursor:pointer;}
+.comment h2 a.hover ,.Consulting h2 a.hover {text-align:center; font:normal bold 14px/32px \5b8b\4f53; padding:0px; margin-left:-1px; _margin-left:0px; color:#BD0021; float:left; background:url(//img12.yesmywine.com/newWeb/images/product/proDetails.gif) no-repeat #fff;}
+.comment h2 a:hover ,.Consulting h2 a:hover{text-decoration:none;color:#BD0021;}
+
+.commentTop {width:100%; float:left; margin-top:20px; display:inline;}
+.commentTop h3 {width:120px; height:90px; float:left; padding-top:12px; font:normal normal 14px/32px \5b8b\4f53; color:#999; text-align:center; background:url(//img12.yesmywine.com/newWeb/images/button/xuxianY.gif) repeat-y right;}
+.commentTop h3 b {font:normal bold 30px/32px Arial; color:#BD0021;}
+.commentTop dl {width:200px; padding:0px 25px 0px 15px; float:left; background:url(//img12.yesmywine.com/newWeb/images/button/xuxianY.gif) repeat-y right;}
+.commentTop dl h4 {width:200px; float:left; font:normal normal 12px/33px \5b8b\4f53; color:#999;}
+.commentTop dl dt {width:30px; float:left; margin-bottom:5px; text-align:right;}
+.commentTop dl dd {width:128px; height:11px; margin-bottom:5px; overflow:hidden; float:left; margin:3px 5px 0 5px; display:inline; border:1px solid #D8D8D8; background-position:0px 0px;}
+.commentTop dl dd div {float:left; height:11px; overflow:hidden; background-position:0px -12px;}
+.commentTop ul { margin-left:360px; padding-top:20px; }
+.commentTop ul li {width:100%; float:left; font:normal normal 12px/34px \5b8b\4f53; color:#999; text-align:center;}
+.commentTop ul li a {width:152px; height:42px; margin:0px auto; display:block; text-align:center; font:normal bold 16px/42px \5b8b\4f53; color:#fff; background-position:0px -413px;}
+.commentTop ul li a:hover {color:#fff; text-decoration:none;}
+.commentDetail ,.ConsultingDetail{width:100%; float:left; margin-top:15px; display:inline; word-wrap:break-word;}
+.commentDetail h3, .ConsultingDetail h3 {width:86px; height:91px; overflow:hidden; float:left; background:url(//img12.yesmywine.com/newWeb/images/button/commentDetailHeadBg.gif) no-repeat;}
+.commentDetail h3 i, .ConsultingDetail h3 i {width:48px; height:48px; float:left; margin:8px 19px 4px 19px; display:inline; background:url(//img12.yesmywine.com/wineshow/product_icon.gif) no-repeat;}
+.commentDetail h3 i.bj, .ConsultingDetail h3 i.bj {background-position:0px 0px;}
+.commentDetail h3 i.hj, .ConsultingDetail h3 i.hj {background-position:0px -49px;}
+.commentDetail h3 i.by, .ConsultingDetail h3 i.by {background-position:0px -98px;}
+.commentDetail h3 i.pt, .ConsultingDetail h3 i.pt {background-position:0px -147px;}
+.commentDetail h3 i.zs, .ConsultingDetail h3 i.zs {background-position:0px -196px;}
+.commentDetail h3 img, .ConsultingDetail h3 img { width:50px; height:50px; margin:6px auto 4px; display:block; }
+.commentDetailR .fl { float:left; }
+.commentDetailR .fr { float:right; }
+.commentDetail h3 span ,.ConsultingDetail h3 span {width:74px; height:25px; float:left; margin-left:6px; display:inline; overflow:hidden; font:normal normal 12px/25px \5b8b\4f53; color:#999; text-align:center;}
+.comment div.commentDetailR { margin-left:100px; _margin-left:103px; position:relative; word-wrap:break-word;}
+.commentDetailR h4 {width:11px; height:21px; background:url(//img12.yesmywine.com/newWeb/images/button/commentDetailRh4.gif) no-repeat; position:absolute; left:-10px; top:12px; text-indent:-999px; overflow:hidden;}
+.commentDetailR h5 { width:100%; height:2px; overflow:hidden; background:#EBEBEB; position:absolute;  bottom:-2px; _bottom:-3px; right:0; left:0; _display:none; }
+.commentDetailR ul { padding:7px; overflow:hidden; border:1px solid #FFCC99; background:#FFFDF7;}
+.commentDetailR ul h6 { padding:0px 10px 5px 10px; height:20px; font:normal normal 12px/20px \5b8b\4f53; color:#666; text-decoration:none; text-align:right; background: url(//img12.yesmywine.com/newWeb/images/button/xuxianX.gif) repeat-x bottom;}
+.commentDetailR ul h6 span ,.CommentBoxN ul li dl,.CommentBoxN ul li h6 {width:113px; height:19px; float:left; background-position:0px -47px;}
+.commentDetailR ul h6 span i ,.CommentBoxN ul li h6 i,.CommentBoxN ul li dl dd a:hover,.CommentBoxN ul li dl dd a.currentRating{height:19px; float:left; background-position:0px -24px;}
+.commentDetailR ul h6 p {width:120px; float:left; padding-left:15px; text-align:left;}
+.commentDetailR ul li { float:none; padding:5px; font-family:\5b8b\4f53; _height:1px; }
+.commentDetailR ul li span { font:normal normal 12px/22px \5b8b\4f53; color:#666;}
+.commentDetailR ul li.jp { position:relative; }
+.commentDetailR ul li.jp a {width:120px; position:absolute; font:normal normal 12px/ 22px \5b8b\4f53; color:#0066CC; text-align:right; top:5px; right:10px; }
+.commentDetailR ul li.jp span { margin-right:120px; display:block; }
+.commentDetailR ul li p {display:inline; font:normal normal 12px/25px \5b8b\4f53; color:#666;}
+.commentDetailR ul li a.ding ,.ConsultingDetail ul li a {color:#06C; line-height:25px; display:inline; padding-left:15px;}
+.commentDetailR ul li a.ding:hover ,.commentDetailR ul li a.hf:hover ,.ConsultingDetail ul li a:hover {color:#06C; text-decoration:underline;}
+.commentDetailR ul li a.hf {width:54px; height:25px; float:right;text-align:center; color:#666; line-height:25px; margin-right:10px; background-position:-85px -456px;}
+.commentDetailR ul li a.plun {width:90px; height:25px; overflow:hidden; float:right; color:#666; line-height:25px; position:relative;}
+.commentDetailR ul li a.plun i ,.commentDetailR ul li.sq a i{width:0px; height:0px; overflow:hidden; position:absolute; top:11px; right:2px; border:5px solid #FFFDF7; border-top:5px solid #666;}
+.commentDetailR ul li strong {color:#FF6600; font-size:14px;}
+.commentDetailR ul li table {width:100%; float:left;}
+.commentDetailR ul li table td {padding:10px 0px;}
+.commentDetailR ul li table td b {font-weight:bold;}
+.commentDetailR ul li.plun { width:100%; margin-top:10px; padding:20px 0px 5px; display:block; background: url(//img12.yesmywine.com/newWeb/images/button/xuxianX.gif) repeat-x top; position:relative; }
+.commentDetailR ul li.plun div.plunframe { padding-left:80px; }
+.commentDetailR ul li.plun textarea {width:510px; height:80px; float:left; font:normal normal 12px/18px \5b8b\4f53; color:#666; outline:none; resize: none; overflow:auto;}
+.commentDetailR ul li.plun a.hf {width:54px; height:25px; float:left;text-align:center; color:#666; line-height:25px; margin-top:56px; margin-left:10px; display:inline; background-position:-85px -456px;}
+.commentDetailR ul li.plun a.hf:hover {text-decoration:none;}
+.commentDetailR ul li.plun dl dd { width:100%; float:left; margin-top:10px; padding-top:2px; display:inline;  background: url(//img12.yesmywine.com/newWeb/images/button/xuxianX.gif) repeat-x top; position:relative; }
+.commentDetailR ul li.plun dl dd span {display:block; font:normal normal 12px/24px \5b8b\4f53; color:#999;}
+.commentDetailR ul li.plun dl dd span a {color:#0066CC;}
+.commentDetailR ul li.plun dl dd span a:hover ,.commentDetailR ul li.plun dl dt a:hover {color:#0066CC; text-decoration:underline;}
+.commentDetailR ul li.plun dl dd i {width:140px; top:0; right:0; position:absolute; text-align:right; font:normal normal 12px/24px \5b8b\4f53; color:#666;}
+.commentDetailR ul li.plun dl dd p { font:normal normal 12px/24px \5b8b\4f53; color:#666; clear:both; display:block; }
+.commentDetailR ul li.plun dl dt {width:100%; float:left; text-align:right;}
+.commentDetailR ul li.plun dl dt a {font:normal normal 12px/24px \5b8b\4f53; color:#0066CC;}
+.commentDetailR ul li.plun dl dt a.on {color:#666; text-decoration:none;}
+.commentDetailR ul li span.sq { display:block; text-align:right; clear:both; }
+.commentDetailR ul li span.sq a {color:#666; position:relative; padding-right:15px;}
+.commentDetailR ul li span.sq a i{width:0px; height:0px; overflow:hidden; position:absolute; top:-2px; right:2px; _right:4px; border:5px solid #FFFDF7; border-bottom:5px solid #666;}
+.plunPage {width:100%; float:left; margin-top:10px; display:inline;}
+.plunPage h4 { padding-left:96px; float:left; font:normal normal 12px/26px \5b8b\4f53; color:#666;}
+.plunPage h4 a {color:#0066CC}
+.plunPage h4 a:hover {color:#0066CC; text-decoration:underline;}
+.plunPage a.more { width:80px; height:30px; background:url(images/bg_comment_more.gif) no-repeat; padding:0; text-align:left; text-indent:-10000px; overflow:hidden; border:none; }
+/* 咨询 */
+.noPlun {width:200px; height:24px; margin:40px auto; padding-left:20px; font:normal normal 14px/24px \5b8b\4f53; color:#666; background-position:-317px -18px;}
+.ConsultingDetail ul { margin-left:96px; _margin-left:5px; _float:left; display:block; background: url(//img12.yesmywine.com/newWeb/images/button/xuxianX.gif) repeat-x bottom;}
+.ConsultingDetail ul li {width:100%; padding-bottom:5px; position:relative; font-family:\5b8b\4f53; }
+.ConsultingDetail ul li span {width:58px; float:left; padding-left:20px; font:normal normal 12px/22px \5b8b\4f53; color:#FF6600; background-position:-38px -22px;}
+.ConsultingDetail ul li span.hf {background-position:0px -160px;}
+.ConsultingDetail ul li p { margin-left:80px; margin-right:125px; font:normal normal 12px/22px \5b8b\4f53; color:#666;}
+.ConsultingDetail ul li p.hf {color:#FF6600;}
+.ConsultingDetail ul li p img{ vertical-align:middle;}
+.ConsultingDetail ul li ins {width:130px; font:normal normal 12px/22px \5b8b\4f53; color:#666; text-align:right; text-decoration:none; position:absolute; top:0; right:0; }
+.ConsultingDetail ul li b {display:inline-block; font:normal normal 12px/28px \5b8b\4f53; color:#666;}
+
+/*酒窖讨论*/
+.wineDiscuss h2 span {width:110px; height:32px; padding:0px 15px; text-align:center; font:normal bold 14px/32px \5b8b\4f53; padding:0px; color:#BD0021; float:left; background:url(//img12.yesmywine.com/newWeb/images/product/proDetails.gif) no-repeat #fff;}
+.wineDiscuss dl {width:960px; float:left; margin-top:15px; display:inline;}
+.wineDiscuss dl dt {width:960px; float:left; font:normal normal 14px/18px \5b8b\4f53; color:#666; padding-bottom:3px;}
+.wineDiscuss dl dd {width:960px; float:left; font-size:12px; line-height:18px; background: url(//img12.yesmywine.com/newWeb/images/button/xuxianX.gif) repeat-x top;}
+.wineDiscuss dl dt span ,.wineDiscuss dl dd span {width:541px; float:left; padding:7px 5px 7px 0px;}
+.wineDiscuss dl dt p ,.wineDiscuss dl dd p {width:128px; padding:7px 5px; float:left; text-align:center;}
+
+/* 评论弹窗*/
+.CommentBox {width:656px;}
+.CommentBoxN ,.ConsultingBoxN{width:646px;float:left; padding:1px; border:1px solid #C50025;background-color:#fff;z-index:101;margin-right:4px;margin-bottom:4px;}
+.CommentBoxN h2,.ConsultingBoxN h2,.Consulting .ConsultingBoxN h2 {width:636px; padding-left:10px; float:left; position:relative; height:35px; background:#9F001C; font:normal normal 14px/35px \5b8b\4f53; color:#fff;}
+.CommentBoxN h2 a ,.ConsultingBoxN h2 a,.Consulting .ConsultingBoxN h2 a {width:13px;height:13px;float:right; position:absolute; right:10px; top:11px; background:url(//img12.yesmywine.com/newWeb/images/product/iconPro.png) no-repeat 0 -57px;cursor:pointer;overflow:hidden; padding:0;}
+.CommentBoxN ul ,.ConsultingBoxN dl {width:606px; float:left; padding:20px;}
+.CommentBoxN ul li {width:606px; float:left;}
+.CommentBoxN ul li span {width:70px; float:left; font:normal bold 14px/18px \5b8b\4f53; color:#666;}
+.CommentBoxN ul li span.result {width:408px; float:left; padding-left:15px;font:normal normal 12px/18px \5b8b\4f53;}
+.CommentBoxN ul li span b {color:#FF0000;}
+.CommentBoxN ul li dl {position:relative;}
+.CommentBoxN ul li dl dd a,.CommentBoxN ul li dl dd a.currentRating {height:19px; float:left; position:absolute; left:0px; top:0px; overflow:hidden; text-indent:-9999px; outline:none;}
+.CommentBoxN ul li dl dd a.oneStar {width:20%; z-index:6}
+.CommentBoxN ul li dl dd a.twoStar {width:40%; z-index:5}
+.CommentBoxN ul li dl dd a.threeStar {width:60%; z-index:4}
+.CommentBoxN ul li dl dd a.fourStar {width:80%; z-index:3}
+.CommentBoxN ul li dl dd a.fiveStar {width:100%; z-index:2}
+.CommentBoxN ul li.tjjp {margin-top:10px; display:inline;}
+.CommentBoxN ul li.tjjp a {width:120px; height:16px; overflow:hidden; float:left;}
+.CommentBoxN ul li.tjjp a img {width:16px; height:16px; float:left;}
+.CommentBoxN ul li.tjjp a b {width:90px; height:16px; float:left; margin-left:10px; display:inline; overflow:hidden; font:normal normal 12px/16px \5b8b\4f53; color:#0066CC;}
+.CommentBoxN ul li.tjjp a:hover {text-decoration:underline; color:#0066CC;}
+.CommentBoxN ul li.tjjpBox {width:606px; float:left; margin-top:5px; display:inline; padding-bottom:10px; background: url(//img12.yesmywine.com/newWeb/images/button/xuxianX.gif) repeat-x bottom;}
+.CommentBoxN ul li.tjjpBox table {width:606px; float:left;}
+.CommentBoxN ul li.tjjpBox table td {padding:10px 2px;}
+.CommentBoxN ul li.tjjpBox table td a.data {width:16px; height:15px; float:left; overflow:hidden; margin-right:5px; display:inline; background:url(//img12.yesmywine.com/newWeb/images/button/rili.gif) no-repeat;}
+.CommentBoxN ul li.tjjpBox table td label {width:72px; float:left; color:#666; line-height:20px; text-align:right;}
+.CommentBoxN ul li.tjjpBox table td select {width:100px; height:20px; float:left; overflow:hidden;color:#666; cursor:pointer;}
+.CommentBoxN ul li.tjjpBox table td strong{ vertical-align:middle;}
+.CommentBoxN ul li.tjjpBox table td input.add {width:528px; }
+.CommentBoxN ul li.tjjpBox table td span.color {width:93px; padding-left:3px; height:18px; float:left; border:1px solid #ccc; position:relative;}
+.CommentBoxN ul li.tjjpBox table td span.color b {font:normal normal 12px/18px \5b8b\4f53; color:#000;}
+.CommentBoxN ul li.tjjpBox table td span.color i {width:12px; height:12px; display:block; overflow:hidden; position:absolute; right:3px; top:3px; background:url(//img12.yesmywine.com/newWeb/images/button/colorIcon.gif) no-repeat; cursor:pointer;}
+.CommentBoxN ul li.tjjpBox table td div.colorBox {display:none}
+.CommentBoxN ul li.tjjpBox table td div.expanded ,.CommentBoxN ul li.tjjpBox table td div.colorBox {width:159px; overflow:hidden; padding:9px; position:absolute; border:1px solid #ccc; top:224px; left:166px; background:#fff; z-index:100}
+.CommentBoxN ul li.tjjpBox table td div.expanded h3 ,.CommentBoxN ul li.tjjpBox table td div.colorBox h3 {width:159px; float:left; padding-bottom:5px; font:normal normal 12px/18px \5b8b\4f53; color:#666;}
+.CommentBoxN ul li.tjjpBox table td div.expanded p ,.CommentBoxN ul li.tjjpBox table td div.colorBox p{width:160px; height:47px; overflow:hidden; float:left; background:url(//img12.yesmywine.com/newWeb/images/product/plunColor.gif) no-repeat;}
+.CommentBoxN ul li.tjjpBox table td div.expanded p a ,.CommentBoxN ul li.tjjpBox table td div.colorBox p a {width:15px; height:15px; float:left; margin-right:1px; display:inline; text-indent:-999px; overflow:hidden;}
+.CommentBoxN ul li.tjjpBox table td div.expanded p a:hover ,.CommentBoxN ul li.tjjpBox table td div.colorBox p a:hover{width:14px; height:14px; border:1px solid #F00; margin-top:1px; margin-right:0px; }
+.CommentBoxN ul li.zongping {padding-top:15px;}
+.CommentBoxN ul li.zongping label {width:80px; text-align:right; float:left; font:normal bold 14px/24px \5b8b\4f53; color:#666;}
+.CommentBoxN ul li.zongping label b {color:red;}
+.CommentBoxN ul li.zongping textarea {width:510px; height:110px; overflow:auto; float:left; outline:none; font:normal normal 12px/18px \5b8b\4f53; color:#666;}
+.CommentBoxN ul li a.tj ,.ConsultingBoxN dl dd a.tj {width:152px; height:41px; float:left; font:normal bold 16px/42px \5b8b\4f53; color:#fff; text-align:center; margin-left:200px; margin-top:15px; display:inline; background-position:-161px 0px;}
+.ConsultingBoxN dl dd a.tj{ float:none; display:inline-block; margin-left:0;}
+.CommentBoxN ul li a.tj:hover ,.ConsultingBoxN dl dd a.tj:hover {text-decoration:none; color:#fff;}
+.CommentBoxN ul li a.colse ,.ConsultingBoxN dl dd a.colse{width:120px; float:left; margin-left:10px; margin-top:37px; display:inline; color:#0066CC;}
+.ConsultingBoxN dl dd a.colse{float:none; display:inline-block;}
+.CommentBoxN ul li a.colse:hover ,.ConsultingBoxN dl dd a.colse:hover {color:#0066CC; text-decoration:underline;}
+
+/*咨询弹窗*/
+.ConsultingBoxN dl h3 {width:606px; float:left; font:normal normal 14px/24px \5b8b\4f53; color:#FF6600;}
+.ConsultingBoxN dl h4 {width:606px; float:left; text-align:center; padding:20px 0px; font:normal normal 14px/24px \5b8b\4f53; color:#333;}
+.ConsultingBoxN dl dt {width:606px; float:left; margin-top:15px; display:inline; font:normal bold 14px/24px \5b8b\4f53; color:#666}
+.ConsultingBoxN dl dd {width:606px; float:left; margin-top:5px; display:inline;}
+.ConsultingBoxN dl dd input {width:13px; margin-top:2px; vertical-align:middle; cursor:pointer;}
+.ConsultingBoxN dl dd input.verification-input{width:auto; height:28px; font-size:12px; padding-left:5px;}
+.ConsultingBoxN dl dd label {width:65px; vertical-align:middle; padding:0px 20px 0px 3px; font:normal normal 14px/16px \5b8b\4f53; color:#666}
+.ConsultingBoxN dl dd textarea {width:560px; height:90px; padding:10px; float:left; overflow:auto; outline:none; font:normal normal 14px/22px \5b8b\4f53; color:#666}
+.verification{height:30px; overflow:hidden; vertical-align:middle; display:inline-block;}
+.blue,a:hover.blue{color:#0066CC;}

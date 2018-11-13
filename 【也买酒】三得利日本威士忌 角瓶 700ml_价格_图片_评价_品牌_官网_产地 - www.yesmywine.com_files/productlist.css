@@ -1,0 +1,34 @@
+/*.mod-prodlist-c5 ul li .prod-img img common */
+.mt10 { margin-top:10px; }
+.mt20 { margin-top:20px; }
+
+/* product-list, 用于百分点等, by shawyon */
+.mod-prodlist-c5 { border:solid 1px #ddd; position:relative; overflow:hidden; background-color:#fff; }
+.mod-prodlist-c5 .bfd_img_logo { float:none; position:absolute; right:10px; top:8px; height:13px; width:100px; background:url(images/baifendian.gif) no-repeat;overflow:hidden; z-index:2; }
+.mod-prodlist-c5 h3 { background:url(images/bg_productlist.gif) repeat-x; height:32px; padding-left:15px; color:#666; line-height:32px; font-size:14px; font-weight:bold; margin:0; float:none !important; }
+.mod-prodlist-c5 ul { padding:10px 0; margin:0 0 0 4px; overflow:hidden; }
+.mod-prodlist-c5 ul li { padding:0 20px; width:150px; float:left; margin:10px 0; line-height:20px; color:#666; border-left:dotted 1px #999; margin-left:-1px; }
+.mod-prodlist-c5 ul li .prod-img { display:block; width:110px; height:180px; margin:0 auto; }
+.mod-prodlist-c5 ul li .prod-img img { display:block; width:110px; height:180px; }
+.mod-prodlist-c5 ul li .prod-name { display:block; height:20px; overflow:hidden; color:#666; margin-top:5px; }
+.mod-prodlist-c5 ul li span { display:block; }
+.mod-prodlist-c5 ul li strong { color:#B70513; }
+/* c3, 用于浏览商品列表 */
+.mod-prodlist-c3 { border:solid 1px #ddd; position:relative; overflow:hidden; background-color:#fff; }
+.mod-prodlist-c3 h3 { background:url(images/bg_productlist.gif) repeat-x; height:16px; padding:8px 15px; color:#666; line-height:16px; font-size:14px; font-weight:bold; margin:0; float:none !important; }
+.mod-prodlist-c3 h3 a { display:block; height:16px; line-height:16px; background:url(images/bg_productlist.gif) no-repeat 0 -48px; padding-left:20px; color:#666; }
+.mod-prodlist-c3 h3 a:hover { text-decoration:none; color:#666; }
+.mod-prodlist-c3 ul { padding:10px 0; margin:0 0 0 4px; overflow:hidden; }
+.mod-prodlist-c3 ul li { padding:0 20px; width:277px; float:left; margin:10px 0; line-height:22px; color:#666; border-left:dotted 1px #999; margin-left:-1px; }
+.mod-prodlist-c3 ul li .prod-img { display:block; width:110px; height:180px; margin:0 auto; border:solid 1px #ccc; float:left; margin-right:10px; }
+.mod-prodlist-c3 ul li .prod-img img { display:block; width:110px; height:180px; }
+.mod-prodlist-c3 ul li .prod-name { display:block; overflow:hidden; color:#333; height:66px; margin-bottom:10px; }
+.mod-prodlist-c3 ul li .prod-name span { color:#666; }
+.mod-prodlist-c3 ul li .prod-count { margin:5px 0; }
+.mod-prodlist-c3 ul li .prod-count input { width:35px; height:20px; line-height:20px; border:solid 1px #ccc; text-align:center; }
+.mod-prodlist-c3 ul li .btn-buy { display:inline-block; border:solid 1px #ccc; width:78px; height:23px; line-height:22px; background:url(images/bg_productlist.gif) repeat-x 0 -64px; text-align:center; color:#666; }
+.mod-prodlist-c3 ul li .btn-buy:hover { text-decoration:none; }
+.mod-prodlist-c3 ul li span { display:block; }
+.mod-prodlist-c3 ul li strong { color:#B70513; }
+.c3-collapse h3 a { background-position:0 -32px; }
+.c3-collapse ul { display:none; }

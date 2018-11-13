@@ -1,0 +1,549 @@
+body{
+	background: #fbfaf9;
+}
+.left-nav{
+	position: fixed;
+	width: 34px;
+	height: 1000px;
+	background: #7e0001;
+	right: 0px;
+}
+.left-navs{
+	height: 300px;
+	margin-top: 200px;
+}
+.a-nav{
+	display: block;
+	border-bottom: 1px solid #8b1a1b;
+	margin: 7px 0px;
+	margin-left: 8px;
+}
+.nav-1{
+	width: 16px;
+	height: 16px;
+	background: url(../img/detalis_img/nBar_icon.png) no-repeat 0px -2px;
+}
+.nav-2{
+	height: 119px;
+}
+.nav-2 i{
+	margin-top: 17px;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url(../img/detalis_img/nBar_icon.png) no-repeat -23px -2px;
+}
+.nav-2 span{
+	font-size: 14px;
+	color: white;
+}
+.nav-2 b{
+	display: block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	border-radius: 50%;
+	background: #f46b0a;
+	text-align: center;
+	color: white;
+	margin-top: 10px;
+}
+.nav-3{
+	width: 20px;
+	height: 20px;
+	background: url(../img/detalis_img/nBar_icon.png) no-repeat -40px 0px;
+}
+.nav-4{
+	width: 20px;
+	height: 20px;
+	background: url(../img/detalis_img/nBar_icon.png) no-repeat -60px 0px;
+}
+.nav-5{
+	width: 20px;
+	height: 20px;
+	background: url(../img/detalis_img/nBar_icon.png) no-repeat -163px 0px;
+}
+.nav-6{
+	width: 20px;
+	height: 20px;
+	background: url(../img/detalis_img/nBar_icon.png) no-repeat -141px 0px;
+}
+.head-bottom,.nav-shouye{
+	background: #7e0001;
+}
+.head-bottom1200 .nav-shouye{
+	background: #7e0001;
+}
+.head-bottom1200 .nav-shouye a{
+	display: inline-block;
+	background: #7e0001;
+	height: 35px;
+}
+.nav-shouye a:hover {
+	background: #624b40;
+}
+.head-bottom1200 .navs:hover{
+	background: #624b40;
+}
+.w_961{
+	width: 961px;
+	margin: 0 auto;
+}
+.head_middle .head-logo{
+	margin-top: 15px;
+	width: 160px;
+	overflow: hidden;
+}
+.head_middle .head-logo img{
+	width: 160px;
+}
+.head-search input:nth-of-type(2){
+	background: url(../img/zhuye_img/jingling1.png) no-repeat 0px -230px;
+}
+.main-menu{
+	display: none;
+}
+.xuanjiuzhongxin:hover .main-menu{
+	display: block;
+}
+
+.xuanjiuzhongxin-a{
+	background: #94735f;
+}
+.xuanjiuzhongxin-a:hover{
+	background: #624b40;
+}
+.main-menu,.sub-menu{
+	background: #735749;
+}
+.sub-menu{
+	opacity: 0.9;
+}
+.main-menu ul .a-li .top-p{
+	color: #eae1f4;
+}
+.main-menu ul li a{
+	color: #bca092;
+}
+.sub-menu h5{
+	color: #eae1f4;
+}
+.lujing{
+	height: 38px;
+	line-height: 38px;
+}
+.magnifier-btn .magnifier-btn-left,.magnifier-btn .magnifier-btn-right{
+    width: 15px;
+    height: 50px;
+}
+.magnifier-btn .magnifier-btn-left{
+    background: url(../img/detalis_img/icon.png) no-repeat -78px -30px;
+}
+.magnifier-btn .magnifier-btn-right{
+    background: url(../img/detalis_img/icon.png) no-repeat -93px -30px;
+}
+.detalis-right{
+	width: 560px;
+	height: 470px;
+	margin-left: 400px;
+}
+.detalis-right1,.detalis-right2{
+	border-bottom: 1px solid #e6e1db;
+}
+.detalis-right1 .wine-name{
+	display: block;
+	font-size: 14px;
+	margin: 3px 0px 32px;
+	color: #000000;
+}
+.detalis-right1 .wine-score{
+	margin-bottom: 17px;
+}
+.detalis-right1 dt{
+	width: 60px;
+	line-height: 20px;
+	color: #999999;
+	float: left;
+}
+.detalis-right1 .wine-score dd span{
+	background: url(../img/detalis_img/icon.png) no-repeat -50px -87px;
+	display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 110px;
+    height: 20px;
+}
+.detalis-right1 .wine-score dd span i{
+	background: url(../img/detalis_img/icon.png) no-repeat -50px -107px;
+	display: block;
+    overflow: hidden;
+    height: 20px;
+    width: 90%;
+}
+.detalis-right2 .promotion{
+	margin-top: 25px;
+	margin-bottom: 29px;
+}
+.detalis-right2 .promotion dd span{
+	color: #957a67;
+}
+.detalis-right2 .promotion dd span i{
+	display: inline-block;
+	font-style: normal;
+	width: 60px;
+	height: 18px;
+	line-height: 18px;
+	color: white;
+	text-align: center;
+	border-radius: 3px;
+	background: #d73c3c;
+	margin-right: 3px;
+}
+.detalis-right2 dt{
+	float: left;
+}
+.detalis-right2 .promotion-price{
+	margin-bottom: 25px;
+}
+.detalis-right2 .promotion-price dd span{
+	font-size: 27px;
+	color: #cc0000;
+}
+.detalis-right2 .promotion-price dt{
+	line-height: 40px;
+}
+.detalis-right2 .promotion-price dd span i{
+	font-size: 12px;
+	font-style: normal;
+}
+.detalis-right3{
+	height: 60px;
+	line-height: 60px;
+}
+.detalis-right3 span{
+	float: left;
+	margin-right: 35px;
+}
+.detalis-right3 a{
+	float: left;
+	margin-right: 35px;
+}
+.detalis-right3 b{
+	display: inline-block;
+	width: 27px;
+	height: 27px;
+	vertical-align: middle;
+	margin-right: 7px;
+}
+.detalis-right3 .kecunjiuku b{
+	width: 32px;
+}
+.detalis-right3 span b{
+	background:url(../img/detalis_img/promotionMiddleIcon.png) no-repeat -1px -2px;
+}
+.detalis-right3 .kecunjiuku b{
+	background:url(../img/detalis_img/promotionMiddleIcon.png) no-repeat -29px -2px;
+}
+.detalis-right3 .man99baoyou b{
+	background:url(../img/detalis_img/promotionMiddleIcon.png) no-repeat -63px -2px;
+}
+.detalis-right4{
+	width: 558px;
+	height: 170px;
+	border: 1px dashed #fec083;
+}
+.detalis-right4 dl{
+	margin-left: 20px;
+}
+.detalis-right4 .peisong{
+	margin-top: 29px;
+}
+.detalis-right4 dt{
+	line-height: 28px;
+	float: left;
+}
+.detalis-right4 .city-choose{
+	position: relative;
+	z-index: 1;
+	float: left;
+}
+.detalis-right4 .city-choose>span{
+	display: inline-block;
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
+	background: url(../img/detalis_img/icon.png) no-repeat 0px -204px;
+	text-indent: 5px;
+}
+.detalis-right4 .city-choose div{
+	width: 300px;
+	height: 250px;
+	position: absolute;
+	background: #f7f7d2;
+	left: 0px;
+	display: none;
+}
+.detalis-right4 .city-choose div.active{
+	display: block;
+}
+.detalis-right4 .city-choose div span{
+	display: inline-block;
+	width: 57px;
+	float: left;
+	cursor: pointer;
+	margin: 8px 0px;
+	color: blue;
+}
+.detalis-right4 .shifouyouhuo{
+	float: left;
+	height: 28px;
+	line-height: 28px;
+	margin-left: 5px;
+}
+.detalis-right4 .xuanzenumber{
+	margin-top: 10px;
+}
+.detalis-right4 .xuanzenumber dt{
+	float: left;
+}
+.detalis-right4 .xuanzenumber dd span{
+	vertical-align: middle;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+.detalis-right4 .xuanzenumber dd .jianhao{
+	background: url(../img/detalis_img/icon.png) no-repeat 0px -232px;
+}
+.detalis-right4 .xuanzenumber dd .jianhao:active{
+	background-position: -31px -232px;
+}
+.detalis-right4 .xuanzenumber dd .jiahao{
+	background: url(../img/detalis_img/icon.png) no-repeat -15px -232px;
+}
+.detalis-right4 .xuanzenumber dd .jiahao:active{
+	background-position: -47px -232px;
+}
+.detalis-right4 .xuanzenumber dd input{
+	width: 41px;
+	height: 20px;
+	line-height: 20px;
+	border: 1px solid #e6e1db;
+	outline: none;
+	text-align: center;
+}
+.detalis-right4 .xuanzenumber dd b{
+	font-style: normal;
+	margin-left: 5px;
+	line-height: 20px;
+}
+.detalis-right4 .xuanzenumber dd i{
+	font-style: normal;
+}
+.jiarucar{
+	width: 210px;
+	height: 44px;
+	background: url(../img/detalis_img/icon.png) no-repeat 0px -890px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	margin-top: 17px;
+	float: left;
+	margin-left: -60px;
+}
+.jiarucar:hover{
+	opacity: 0.8;
+}
+.lipinka{
+	margin-left: 70px;
+}
+.id-guanzhu{
+	height: 112px;
+}
+.id-guanzhu .good-id{
+	margin-left: 75px;
+}
+.id-guanzhu .jiaguanzhu{
+	display: block;
+	width: 73px;
+	height: 27px;
+	line-height: 27px;
+	background: url(../img/detalis_img/icon.png) no-repeat -108px -30px;
+	text-indent: 27px;
+	cursor: pointer;
+	margin-top: 23px;
+	margin-left: 60px;
+}
+.xiding{
+	height: 38px;
+	border: 1px solid #e6e1db;
+	border-bottom: 2px solid #7e5043;
+	background: #f3f0ed;
+}
+.xiding.fix{
+	position: fixed;
+	top: 0;
+	left: 193px;
+	z-index: 100;
+}
+.xiding span{
+	display: block;
+	height: 38px;
+	line-height: 38px;
+	width: 140px;
+	font-size: 14px;
+	color: #74463a;
+	text-align: center;
+	background: #f3f0ed;
+	float: left;
+	cursor: pointer;
+}
+.xiding b{
+	float: right;
+	display: block;
+	width: 100px;
+	height: 26px;
+	margin-top: 6px;
+	margin-right: 6px;
+	background: url(../img/detalis_img/icon.png) no-repeat -63px -232px;
+	cursor: pointer;
+}
+.xiding span.active{
+	background: #7e5043;
+	color: white;
+}
+.xiding span:hover{
+	opacity: 0.9;
+}
+.yilou .xiangqing{
+	border: 1px solid #e6e1db;
+	border-top: 0px;
+}
+.yilou .xiangqing dl{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.yilou .xiangqing dt{
+	float: left;
+	color: #666666;
+}
+.yilou .xiangqing dt span{
+	display: block;
+	width: 16px;
+	height: 16px;
+	float: left;
+}
+.xiangqing1 dl:nth-of-type(1) dt span{
+	background: url(../img/detalis_img/xiangqingIco.png) no-repeat 0px 0px;
+}
+.xiangqing1 dl:nth-of-type(2) dt span{
+	background: url(../img/detalis_img/xiangqingIco.png) no-repeat -250px -56px;
+}
+.xiangqing2 dl:nth-of-type(1) dt span{
+	background: url(../img/detalis_img/xiangqingIco.png) no-repeat -490px 0px;
+}
+.xiangqing2 dl:nth-of-type(2) dt span{
+	background: url(../img/detalis_img/xiangqingIco.png) no-repeat -490px -54px;
+}
+.xiangqing3 dl:nth-of-type(1) dt span{
+	background: url(../img/detalis_img/xiangqingIco.png) no-repeat -1px -25px;
+}
+.xiangqing3 dl:nth-of-type(2) dt span{
+	background: url(../img/detalis_img/xiangqingIco.png) no-repeat 0px 0px;
+}
+.xiangqing4 dl:nth-of-type(1) dt span{
+	background: url(../img/detalis_img/xiangqingIco.png) no-repeat 0px -57px;
+}
+.xiangqing1,.xiangqing2,.xiangqing3{
+	width: 230px;
+	height: 60px;
+	border-right: 1px dashed #b6b6b6;
+	margin-top: 20px;
+}
+.xiangqing4{
+	width: 230px;
+	height: 60px;
+	margin-top: 20px;
+}
+.yilou .xiangqing>div{
+	display: inline-block;
+}
+.erlou{
+	margin-top: 20px;
+}
+.user-evaluate{
+	height: 40px;
+	border: 1px solid #e6e1db;
+	line-height: 40px;
+	font-size: 14px;
+	color: white;
+	background: #845647;
+	font-weight: bold;
+	text-indent: 25px;
+	border: 2px solid #e6e1db;
+	border-bottom: 0px;
+}
+.user-evaluate a{
+	font-size: 12px;
+	float: right;
+	color: white;
+	margin-right: 23px;
+}
+.erlouo{
+	border: 1px solid #e6e1db;
+}
+.sanlou{
+	height: 250px;
+	border: 1px solid #e6e1db;
+}
+
+
+
+
+
+
+
+
+
+
+.btns{
+	overflow: hidden;
+}
+.btns button{
+	width: 78px;
+	height: 32px;
+	border: 1px solid #ebd9c0;
+	float: left;
+	color: #000;
+	background: #fffff6;
+	outline: none;
+	cursor: pointer;
+}
+.btns button.active{
+	border-bottom: 0px;
+	background: white;
+	color: #bd0021;
+}
+.shows p{
+	color: #000;
+	text-align: center;
+	display: none;
+}
+.erlou .shows a{
+	display: block;
+	width: 68px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #ebd9c0;
+	text-align: center;
+	background: white;
+	color: #bd0021;
+	margin: 5px 0px 20px 16px;
+}
+.sanlou .shows p{
+	height: 165px;
+	line-height: 165px;
+}
+.shows p.active{
+	display: block;
+}

@@ -1,0 +1,159 @@
+header{
+	height: 98px;
+	border-bottom: 2px solid #bc0e31;
+}
+header .w_1200{
+	padding: 20px 0px;
+}
+header a{
+	float: left;
+}
+header img{
+	float: right;
+}
+.regist-box{
+	width: 398px;
+	border: 1px solid #d2d2ce;
+	margin-top: 20px;
+	background: #f8f8f5;
+	float: left;
+	margin-bottom: 40px;
+}
+.regist-top{
+	width: 354px;
+	height: 50px;
+	line-height: 50px;
+	margin-top: 6px;
+	font-size: 14px;
+	color: #333333;
+	border-bottom: 1px solid #d2d2ce;
+	margin-left: 22px;
+	font-weight: bold;
+}
+.regist-top a{
+	color: #0066CC;
+	font-size: 12px;
+	float: right;
+	margin-top: 15px;
+	font-weight: normal;
+}
+.regist-top a:hover{
+	text-decoration: underline;
+}
+form{
+	margin: 43px 0px 27px 22px;
+}
+form .error-uphone{
+	display: none;
+	margin-left: 78px;
+	margin-bottom: 16px;
+	font-style: normal;
+	font-size: 10px;
+	color: #f00;
+}
+form .error-uphone em{
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	margin-right: 3px;
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -160px -160px;
+}
+form div span{
+	display: inline-block;
+	width: 78px;
+	vertical-align: middle;
+}
+form div span em{
+	font-style: normal;
+	float: right;
+	font-size: 14px;
+	color: #363636;
+}
+form div input::-webkit-input-placeholder{
+	font-size: 12px;
+	color: #aaaaaa;
+}
+#uphone,#yanzheng,#duanxinyanzheng,#password,#password-r{
+	width: 280px;
+	height: 38px;
+	border: 1px solid #9a9a9a;
+	margin-bottom: 14px;
+	text-indent: 8px;
+	outline: none;
+	
+	-webkit-appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+#yanzheng,#duanxinyanzheng{
+	width: 175px;
+}
+form #check-code{
+	float: right;
+	margin-right: 19px;
+	margin-top: 5px;
+	display: block;
+	width: 100px;
+	height: 30px;
+	background: pink;
+}
+.duanxinyanzheng{
+	float: right;
+	margin-right: 19px;
+	display: block;
+	width: 100px;
+	height: 40px;
+	background: #f45f03;
+	border: none;
+	color: white;
+}
+#check-code{
+    right:25px;
+    top: 151px;
+}
+.code {
+    font-family: Arial;
+    font-style: italic;
+    font-size: 20px;
+    border: 0;
+    padding: 2px 3px;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    float: left;
+    cursor: pointer;
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    }
+#check-1{
+	margin-left: 68px;
+	margin-bottom: 20px;
+}
+#check-2{
+	margin-left: 76px;
+	margin-bottom: 28px;
+}
+#submit{
+	width: 355px;
+	height: 45px;
+	background: #bb0e30;
+	margin-left: -2px;
+	font-size: 16px;
+	color: white;
+	outline: none;
+	cursor: pointer;
+}
+.regist-right{
+	float: right;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+.footer-bot{
+	height: 166px;
+}

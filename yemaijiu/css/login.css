@@ -5,11 +5,10 @@ header{
 header .w_1200{
 	padding: 20px 0px;
 }
-header img:nth-of-type(1){
+header a{
 	float: left;
-	vertical-align: middle;
 }
-header img:nth-of-type(2){
+header img{
 	float: right;
 }
 .login-mid{
@@ -26,7 +25,6 @@ header img:nth-of-type(2){
 .login-mid .login{
 	float: left;
 	width: 403px;
-	height: 393px;
 	border: 1px solid #dddddd;
 	margin-top: 34px;
 }
@@ -47,7 +45,7 @@ header img:nth-of-type(2){
 	margin-right: 20px;
 	margin-top: 23px;
 }
-.login em{
+.login .login-top em{
 	float: left;
 	height: 0px;
 	width: 163px;
@@ -89,6 +87,22 @@ form div{
 	line-height: 30px;
 	margin-bottom: 7px;
 }
+form b{
+	display: none;
+	margin-left: 35px;
+	margin-bottom: 16px;
+	font-style: normal;
+	font-size: 10px;
+	color: #f00;
+}
+form em{
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	margin-right: 3px;
+	background: url(../img/zhuye_img/jingling1.png) no-repeat -160px -160px;
+}
 #check{
 	display: inline-block;
 	vertical-align: middle;
@@ -97,6 +111,7 @@ form div{
 .forget-password{
 	margin-left: 35px;
 	margin-right: 10px;
+	margin-top: 16px;
 }
 .login-bot{
 	border-top: 1px dashed #cccccc;
@@ -129,4 +144,5 @@ form div{
 }
 .login a{
 	color: #3472b2;
+	margin-bottom: 20px;
 }
