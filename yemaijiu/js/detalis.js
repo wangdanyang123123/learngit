@@ -6,7 +6,8 @@ requirejs.config({
 		extend:"jquery.extend",
 		jquery:"jq1.11.1",
 		lazy:"lazyload.min",
-		swiper:"swiper.min"
+		swiper:"swiper.min",
+		cookie:"cookies"
 	},
 	shim:{
 		baiduT:{
@@ -27,28 +28,16 @@ requirejs.config({
 		swiper:{
 			exports:"Swiper",
 			deps:["jquery"]
+		},
+		cookie:{
+			deps:["jquery"]
 		}
 	}
 });
 
 
-requirejs(["jquery","swiper","baiduT","extend","lazy","page"],function($,sw,bd){
-//	$(".mid-imgs .next").click(function(){
-//		$(".mid-img .active").next().addClass("active").siblings().removeClass("active");
-//		$(".small-imgs ul .on").next().addClass("on").siblings().removeClass("on");
-//	});
-//	
-//	$(".mid-imgs .prev").click(function(){
-//		$(".mid-img .active").prev().addClass("active").siblings().removeClass("active");
-//		$(".small-imgs ul .on").prev().addClass("on").siblings().removeClass("on");
-//	});
-//	
-//	$(".small-imgbox .move-right").click(function(){
-//			$(".small-imgs ul").css("margin-left","-320px")
-//	})
-//	$(".small-imgbox .move-left").click(function(){
-//			$(".small-imgs ul").css("margin-left","0px")
-//	})
+requirejs(["jquery","swiper","baiduT","extend","lazy","page","cookie"],function($,sw,bd){
+
 	
 	
 	
@@ -126,8 +115,59 @@ requirejs(["jquery","swiper","baiduT","extend","lazy","page"],function($,sw,bd){
 	
 	
 	
+	
+		var jian = document.querySelector(".xuanzenumber dd .jianhao");
+		var jia = document.querySelector(".xuanzenumber dd .jiahao");
+		var cnt = document.querySelector(".xuanzenumber dd #shuliang").value;
+		
+		jian.onclick=function(){
+			if(cnt>1){
+				cnt--;
+				document.querySelector(".xuanzenumber dd #shuliang").value=cnt;
+			}
+		}
+		jia.onclick=function(){
+			cnt++;
+			document.querySelector(".xuanzenumber dd #shuliang").value=cnt;
+		}
+	
+	
+	
+	$(".detalis-right4 button").click(function(){
+		var winename = document.querySelector(".wine-name").innerHTML;
+		var price = document.querySelector(".promotion-price dd b").innerHTML;
+		var city = document.querySelector(".city-choose .peisongchengshi").innerHTML;
+		var winenum = document.querySelector("#shuliang").value;
+		
+		var goods = [];
+		
+//		if(getcookie("cart")){
+//			alert("已添加该商品");
+//		}
+		
+		goods.push({
+			winename:winename,
+			price:price,
+			city:city,
+			winenum:winenum
+		})
+		console.log(goods)
+		setcookie("cart",JSON.stringify(goods),7);
+		
+	});
+		
+	
+	
+	
+	
+	
+	
 	$(".erlou-tab").tab("active");
 	$(".sanlou-tab").tab("active");
+	
+	
+	
+	
 	
 	
 });

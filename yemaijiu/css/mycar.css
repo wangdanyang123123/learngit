@@ -1,0 +1,429 @@
+.w_970{
+	width: 970px;
+	margin: 0 auto;
+}
+.liucheng{
+	background: #f1eeed;
+	height: 100px;
+	border-bottom: 2px solid #7e0001;
+}
+.liucheng .head-logo{
+	float: left;
+}
+.liucheng .buzhou{
+	margin-top: 30px;
+	float: right;
+	width: 479px;
+	height: 40px;
+	background: url(../img/mycar_img/cart_step.png) no-repeat 0px 0px;
+}
+.wenxintishi{
+	width: 710px;
+	height: 32px;
+	line-height: 32px;
+	border: 1px solid #cccccc;
+	box-shadow: 2px 2px 1px #e5e5e5;
+	margin-top: 20px;
+	margin-bottom: 14px;
+}
+.wenxintishi.active{
+	visibility: hidden;
+}
+.wenxintishi span{
+	color: #ff6600;
+	padding: 0px 10px;
+}
+.wenxintishi b{
+	font-weight: normal;
+}
+.wenxintishi i{
+	display: block;
+	width: 13px;
+	height: 13px;
+	background: url(../img/mycar_img/global_btnIcon.png) no-repeat -317px -120px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.wenxintishi s{
+	display: block;
+	width: 14px;
+	height: 9px;
+	background: url(../img/mycar_img/titleCartTopBg.png) no-repeat 0px 0px;
+	margin-left: 20px;
+}
+.car-goods{
+	width: 959px;
+	height: 273px;
+	border: 5px solid #e7e7e7;
+}
+.car-goods .yemaijiupeisong{
+	line-height: 40px;
+	height: 40px;
+	border-bottom: 2px solid #85726c;
+}
+.car-goods .yemaijiupeisong i{
+	float: left;
+	width: 16px;
+	height: 16px;
+	display: block;
+	background: url(../img/mycar_img/radio_s.png) no-repeat 0px 0px;
+	margin: 13px 7px;
+}
+.car-goods .yemaijiupeisong b{
+	float: left;
+}
+.car-goods .yemaijiupeisong span{
+	text-align: center;
+	float: right;
+	margin: 12px 7px;
+	display: block;
+	width: 68px;
+	height: 17px;
+	line-height: 17px;
+	color: white;
+	background: url(../img/mycar_img/cart_icon.png) no-repeat -0px -86px;
+	cursor: pointer;
+	position: relative;
+}
+.car-goods .yemaijiupeisong span em{
+	position: absolute;
+	display:block;
+	width: 0;
+	height: 0;
+	border: 5px solid #c75050;
+	border-bottom-color : #FFFFFF;
+	top: 0;
+	right: 0;
+	margin-right: 10px;
+	margin-top: 1px;
+}
+
+
+
+.my-cart thead{
+	float: left;
+	height: 33px;
+	width: 957px;
+	line-height: 33px;
+	background: #f1eeeb;
+	border-bottom: 1px dashed #999999;
+}
+.my-cart thead input{
+	vertical-align: middle;
+}
+.my-cart thead .col1{
+	padding-right: 188px;
+	padding-left: 18px;
+}
+.my-cart thead .col2{
+	padding-right: 220px;
+}
+.my-cart thead .col3{
+	padding-right: 100px;
+}
+.my-cart thead .col4{
+	padding-right: 100px;
+}
+
+.my-cart tbody{
+	float: left;
+	height: 125px;
+	width: 957px;
+	border-bottom: 1px dashed #999999;
+	color: #000000;
+}
+.my-cart tbody .col1{
+	padding-left: 31px;
+}
+.my-cart tbody input{
+	margin-right: 44px;
+}
+.my-cart tbody .col2{
+	padding: 10px;
+}
+.my-cart tbody .col3{
+	width: 330px;
+}
+.my-cart tbody .col4{
+	padding-right: 75px;
+}
+.my-cart tbody .col5{
+	padding-right: 75px;
+}
+.my-cart tbody .col5 .jian{
+	float: left;
+	display: block;
+	width: 13px;
+	height: 24px;
+	background: url(../img/mycar_img/cart_icon.png) no-repeat 0px -107px;
+}
+.my-cart tbody .col5 b{
+	float: left;
+	display: block;
+	width: 32px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	background: url(../img/mycar_img/cart_icon.png) no-repeat -13px -107px;
+}
+.my-cart tbody .col5 .jia{
+	float: left;
+	display: block;
+	width: 13px;
+	height: 24px;
+	background: url(../img/mycar_img/cart_icon.png) no-repeat -45px -107px;
+}
+.my-cart tbody .col5 span{
+	cursor: pointer;
+}
+.my-cart tbody .col6 span{
+	color: #c75050;
+}
+.my-cart tbody .col6{
+	padding-right: 50px;
+}
+.my-cart tbody .col7{
+	width: 70px;
+	text-align: center;
+	line-height: 20px;
+}
+.my-cart tbody .col7 span{
+	cursor: pointer;
+	color: #3172b2;
+}
+
+
+.my-cart tfoot{
+	color: #000000;
+	float: left;
+	height: 70px;
+	line-height: 70px;
+	width: 955px;
+	background: #f1eeeb;
+	border: 1px solid #cccccc;
+}
+.my-cart tfoot input{
+	margin-left: 20px;
+	vertical-align: middle;
+}
+.my-cart tfoot span{
+	padding-left: 21px;
+	cursor: pointer;
+}
+
+
+
+.zongji{
+	width: 960px;
+	height: 58px;
+	border-bottom: 2px solid #e0dad8;
+	margin-bottom: 75px;
+}
+.zongji .zongji-span{
+	float: right;
+	margin-top: 34px;
+	margin-right: 5px;
+}
+.zongji b{
+	color: #dd3939;
+}
+.zongji .huodongyouhui{
+	color: #3172b2;
+}
+.zongji .youhuijuan{
+	color: #3172b2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.huodong{
+	height: 45px;
+	border: 1px solid #dddddd;
+}
+.some-huodong{
+	height: 32px;
+	line-height: 32px;
+	border: 1px solid #dddddd;
+}
+.some-huodong b{
+	margin: 0px 10px;
+}
+
+
+
+.tab{
+	margin: 0 auto;
+}
+.btns{
+	overflow: hidden;
+}
+.btns button{
+	width: 96px;
+	height: 30px;
+	border: 1px solid #ded7d1;
+	float: left;
+	color: #000;
+	background: #f1eeeb;
+	outline: none;
+	cursor: pointer;
+}
+.btns button.active{
+	background: white;
+}
+.shows p{
+	height: 327px;
+	color: #000;
+	border: 1px solid #ded7d1;
+	display: none;
+}
+.shows p.active{
+	display: block;
+}
+
+.footer-bot{
+	height: 350px;
+	background: white;
+	border-top: 1px solid #cccccc;
+	margin-top: 40px;
+}
+.footer-bot3 span:nth-of-type(1){
+	margin-left: 120px;
+}
+.footer-bot3 span{
+	padding: 0px 4px;
+	margin-top: 15px;
+}
+.footer-bot3 a{
+	margin-top: 15px;
+}
+
+
+.jiesuan{
+	height: 70px;
+	line-height: 70px;
+	box-shadow: 0px 0px 10px #d8d8d8;
+	position: fixed;
+	bottom: 0;
+	background: #eeeeee;
+}
+.jiesuan span{
+	display: inline-block;
+	height: 20px;
+}
+.jiesuan .lipin i{
+	width: 18px;
+	height: 20px;
+	background: url(../img/mycar_img/cart_icon.png) no-repeat 0px -202px;
+	display: inline-block;
+	margin-right: 8px;
+}
+.jiesuan .youhui i{
+	width: 18px;
+	height: 20px;
+	background: url(../img/mycar_img/cart_icon.png) no-repeat 0px -241px;
+	display: inline-block;
+	margin-right: 8px;
+	margin-left: 52px;
+}
+.jiesuan .good-num{
+	margin-left: 52px;
+	margin-right: 20px;
+}
+.jiesuan .good-num b{
+	color: #d63939;
+}
+.jiesuan .money i{
+	font-style: normal;
+	color: #d63939;
+}
+.jiesuan .money em{
+	font-style: normal;
+	color: #d63939;
+	font-size: 16px;
+}
+.jiesuan button{
+	width: 210px;
+	height: 50px;
+	background: url(../img/mycar_img/cart_icon.png) no-repeat 0px 0px;
+	border: 0px;
+	cursor: pointer;
+	outline: none;
+	font-size: 22px;
+	color: white;
+	margin-left: 10px;
+}
